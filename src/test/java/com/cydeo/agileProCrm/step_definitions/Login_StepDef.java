@@ -2,18 +2,14 @@ package com.cydeo.agileProCrm.step_definitions;
 
 import com.cydeo.agileProCrm.pages.HomePage;
 import com.cydeo.agileProCrm.pages.LoginPage;
-import com.cydeo.agileProCrm.pages.quickMenu.MessageQM;
 import com.cydeo.agileProCrm.utilities.ConfigurationReader;
 import com.cydeo.agileProCrm.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.junit.Test;
 
-import java.util.List;
-
-public class LoginStepDef {
+public class Login_StepDef {
 
     LoginPage login = new LoginPage();
     HomePage home = new HomePage();
