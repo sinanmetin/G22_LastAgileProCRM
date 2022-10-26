@@ -1,6 +1,8 @@
 package com.cydeo.agileProCrm.pages;
 
+import com.cydeo.agileProCrm.utilities.ConfigurationReader;
 import com.cydeo.agileProCrm.utilities.Driver;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -9,7 +11,7 @@ import java.awt.print.Pageable;
 
 public class LoginPage {
 
-    public LoginPage(){
+    public LoginPage() {
         PageFactory.initElements(Driver.getDriver(), this);
 
     }
@@ -36,25 +38,25 @@ public class LoginPage {
 
     //////////LoginMethods/////////////////////////////////////////////////////////
 
-    public void loginHR(){
-
+    public void loginHR() {
+        inputUsername.sendKeys(ConfigurationReader.getProperty("username.hr"));
+        inputPassword.sendKeys(ConfigurationReader.getProperty("password")+Keys.ENTER);
     }
 
-    public void loginHelpDesk(){
-
-    }
-    public void loginMarketing(){
-
+    public void loginHelpDesk() {
+        inputUsername.sendKeys(ConfigurationReader.getProperty("username.helpdesk"));
+        inputPassword.sendKeys(ConfigurationReader.getProperty("password")+Keys.ENTER);
     }
 
-    public void login(String username, String password){
-
-
+    public void loginMarketing() {
+        inputUsername.sendKeys(ConfigurationReader.getProperty("username.marketing"));
+        inputPassword.sendKeys(ConfigurationReader.getProperty("password")+Keys.ENTER);
     }
 
-
-
-
+    public void login(String username, String password) {
+        inputUsername.sendKeys(username);
+        inputPassword.sendKeys(password+Keys.ENTER);
+    }
 
 
 }

@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/cydeo/agileProCrm/step_definitions",
         dryRun = false,
-        tags = "@wip",
+        tags = "@AGIL-1610",
         //"@wip and @googleSearch"
         //"@student or @admin
         //"@Regression and not @student"

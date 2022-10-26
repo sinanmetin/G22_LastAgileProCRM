@@ -1,8 +1,10 @@
+@AGIL-1601
 Feature:As a user, I should be able to login
 
   Background:
     Given user is on login page
-  @wip
+
+  @AGIL-1595
   Scenario Outline:User should be able to login as HR user
     When hr enter username "<username>"
     And hr enter password "<password>"
@@ -22,7 +24,9 @@ Feature:As a user, I should be able to login
       | hr80@cybertekschool.com  | UserUser |
       | hr93@cybertekschool.com  | UserUser |
       | hr101@cybertekschool.com | UserUser |
-  @wip
+
+
+  @AGIL-1596
   Scenario Outline:User should be able to login as Helpdesk user
     When Helpdesk enter username "<username>"
     And Helpdesk enter password "<password>"
@@ -43,6 +47,8 @@ Feature:As a user, I should be able to login
       | helpdesk90@cybertekschool.com  | UserUser |
       | helpdesk101@cybertekschool.com | UserUser |
 
+
+  @AGIL-1597
   Scenario Outline:User should be able to login  as Marketing
     When Marketing enter username "<username>"
     And Marketing enter password "<password>"
@@ -62,7 +68,7 @@ Feature:As a user, I should be able to login
       | marketing84@cybertekschool.com  | UserUser |
       | marketing99@cybertekschool.com  | UserUser |
       | marketing101@cybertekschool.com | UserUser |
-
+  @AGIL-1598
   Scenario Outline: Users should not be able to login with invalid credentials
     When user enter invalid username "<username>"
     And user enter invalid password "<password>"
@@ -77,13 +83,15 @@ Feature:As a user, I should be able to login
       | marketing1@cybertekschool.com | invalid  |
       | invalid@cybertekschool.com    | UserUser |
 
+
+  @AGIL-1599
   Scenario:User should be able to click "Remember me on this computer" checkbox
     When user click on remember me checkbox
     Then checkbox should be selected
     When user click on remember me checkbox
     Then checkbox should be deselected
 
-
+  @AGIL-1600
   Scenario:User should be able to click "FORGOT YOUR PASSWORD?" link
     When user click forgot password link
     Then get password page should be opened
