@@ -2,6 +2,7 @@ package com.cydeo.agileProCrm.step_definitions;
 
 import com.cydeo.agileProCrm.pages.HomePage;
 import com.cydeo.agileProCrm.pages.LoginPage;
+import com.cydeo.agileProCrm.utilities.BrowserUtils;
 import com.cydeo.agileProCrm.utilities.ConfigurationReader;
 import com.cydeo.agileProCrm.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -46,19 +47,21 @@ public class Logout_StepDef {
 
     @When("user click on user menu")
     public void user_click_on_user_menu() {
+        Driver.getDriver().navigate().refresh();
         home.userBlock.click();
     }
 
     @When("user click on logout link")
     public void user_click_on_logout_link() {
+
         home.logout.click();
     }
 
     @Then("user should land on login page")
     public void user_should_land_on_login_page() {
-        String expectedTitle="Authorization";
-        String actualTitle=Driver.getDriver().getTitle();
-        Assert.assertEquals(expectedTitle,actualTitle);
+        String expectedTitle = "Authorization";
+        String actualTitle = Driver.getDriver().getTitle();
+        Assert.assertEquals(expectedTitle, actualTitle);
     }
 
     /////AC-2 Same Step for each user////////
@@ -68,6 +71,7 @@ public class Logout_StepDef {
         Driver.getDriver().navigate().back();
 
     }
+
     /////AC-3 Same Step for each user////////
     @And("user close the browser")
     public void userCloseTheBrowser() {
@@ -80,6 +84,11 @@ public class Logout_StepDef {
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
+
+    @Given("{string} login with {string} and {string}")
+    public void login_with_and(String string, String username, String password) {
+        login.login(username, password);
+    }
 
 
 }

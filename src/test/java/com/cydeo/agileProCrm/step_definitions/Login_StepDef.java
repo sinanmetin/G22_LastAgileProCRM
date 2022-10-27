@@ -10,54 +10,29 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 
 public class Login_StepDef {
-
     LoginPage login = new LoginPage();
+
     HomePage home = new HomePage();
 
 
-    ///////////////////////////////////////////////////////////////////////////////////
-    //AC-1, AC-2, AC-3
     @Given("user is on login page")
     public void user_is_on_login_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
 
     }
 
-    ///////////HRCredentials////////////////////
-    @When("hr enter username {string}")
-    public void hr_enter_username(String username) {
+
+    @When("{string} enter username {string}")
+    public void enter_username(String string, String username) {
         login.inputUsername.sendKeys(username);
     }
 
-    @When("hr enter password {string}")
-    public void hr_enter_password(String password) {
+    @When("{string} enter password {string}")
+    public void enter_password(String string, String password) {
         login.inputPassword.sendKeys(password);
     }
 
-    //////////HelpDeskCredentials//////////////
 
-    @When("Helpdesk enter username {string}")
-    public void helpdesk_enter_username(String username) {
-        login.inputUsername.sendKeys(username);
-    }
-
-    @When("Helpdesk enter password {string}")
-    public void helpdesk_enter_password(String password) {
-        login.inputPassword.sendKeys(password);
-    }
-
-    ///////////MarketingCredentials///////////////
-    @When("Marketing enter username {string}")
-    public void marketing_enter_username(String username) {
-        login.inputUsername.sendKeys(username);
-    }
-
-    @When("Marketing enter password {string}")
-    public void marketing_enter_password(String password) {
-        login.inputPassword.sendKeys(password);
-    }
-
-    /////////LoginAndAssert///////////////////
     @When("user click on login button")
     public void user_click_on_login_button() {
         login.loginBtn.click();
@@ -70,23 +45,14 @@ public class Login_StepDef {
 
     ///////////////////////////////////////////////////////////////////////////////////
     //negative scenario AC-4
-
-    @When("user enter invalid username {string}")
-    public void user_enter_invalid_username(String username) {
-        login.inputUsername.sendKeys(username);
-    }
-
-    @When("user enter invalid password {string}")
-    public void user_enter_invalid_password(String password) {
-        login.inputPassword.sendKeys(password);
-    }
-
     @Then("user see the error message")
     public void user_see_the_error_message() {
         String expectedErrorMessage="Incorrect login or password";
         String actualErrorMessage=login.errorMessage.getText();
         Assert.assertEquals(expectedErrorMessage,actualErrorMessage);
     }
+
+
 
     ////////////////////////////////////////////////////////////////////////////////
     //AC-5
@@ -121,6 +87,7 @@ public class Login_StepDef {
     }
 
     ////////////////////////////////////////////////////////////////////////////////
+
 
 
 }
