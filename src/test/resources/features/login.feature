@@ -1,88 +1,42 @@
-@AGIL-1601
+
 Feature:As a user, I should be able to login
 
   Background:
     Given user is on login page
 
-  @AGIL-1595
-  Scenario Outline:User should be able to login as HR user
-    When hr enter username "<username>"
-    And hr enter password "<password>"
+
+  Scenario Outline:"<user>" should be able to login as
+    When "<user>" enter username "<username>"
+    And "<user>" enter password "<password>"
     And user click on login button
     Then user should see dashboard
 
     Examples:
-      | username                 | password |
-      | hr7@cybertekschool.com   | UserUser |
-      | hr15@cybertekschool.com  | UserUser |
-      | hr22@cybertekschool.com  | UserUser |
-      | hr39@cybertekschool.com  | UserUser |
-      | hr42@cybertekschool.com  | UserUser |
-      | hr57@cybertekschool.com  | UserUser |
-      | hr66@cybertekschool.com  | UserUser |
-      | hr75@cybertekschool.com  | UserUser |
-      | hr80@cybertekschool.com  | UserUser |
-      | hr93@cybertekschool.com  | UserUser |
-      | hr101@cybertekschool.com | UserUser |
+      | user      | username                       | password |
+      | HR        | hr7@cybertekschool.com         | UserUser |
+      | HR        | hr75@cybertekschool.com        | UserUser |
+      | HR        | hr46@cybertekschool.com        | UserUser |
+      | Helpdesk  | helpdesk18@cybertekschool.com  | UserUser |
+      | Helpdesk  | helpdesk95@cybertekschool.com  | UserUser |
+      | Helpdesk  | helpdesk54@cybertekschool.com  | UserUser |
+      | Marketing | marketing25@cybertekschool.com | UserUser |
+      | Marketing | marketing2@cybertekschool.com  | UserUser |
+      | Marketing | marketing87@cybertekschool.com | UserUser |
 
-
-  @AGIL-1596
-  Scenario Outline:User should be able to login as Helpdesk user
-    When Helpdesk enter username "<username>"
-    And Helpdesk enter password "<password>"
-    And user click on login button
-    Then user should see dashboard
-
-    Examples:
-      | username                       | password |
-      | helpdesk3@cybertekschool.com   | UserUser |
-      | helpdesk18@cybertekschool.com  | UserUser |
-      | helpdesk23@cybertekschool.com  | UserUser |
-      | helpdesk37@cybertekschool.com  | UserUser |
-      | helpdesk44@cybertekschool.com  | UserUser |
-      | helpdesk51@cybertekschool.com  | UserUser |
-      | helpdesk68@cybertekschool.com  | UserUser |
-      | helpdesk75@cybertekschool.com  | UserUser |
-      | helpdesk82@cybertekschool.com  | UserUser |
-      | helpdesk90@cybertekschool.com  | UserUser |
-      | helpdesk101@cybertekschool.com | UserUser |
-
-
-  @AGIL-1597
-  Scenario Outline:User should be able to login  as Marketing
-    When Marketing enter username "<username>"
-    And Marketing enter password "<password>"
-    And user click on login button
-    Then user should see dashboard
-
-    Examples:
-      | username                        | password |
-      | marketing2@cybertekschool.com   | UserUser |
-      | marketing13@cybertekschool.com  | UserUser |
-      | marketing26@cybertekschool.com  | UserUser |
-      | marketing32@cybertekschool.com  | UserUser |
-      | marketing45@cybertekschool.com  | UserUser |
-      | marketing59@cybertekschool.com  | UserUser |
-      | marketing63@cybertekschool.com  | UserUser |
-      | marketing78@cybertekschool.com  | UserUser |
-      | marketing84@cybertekschool.com  | UserUser |
-      | marketing99@cybertekschool.com  | UserUser |
-      | marketing101@cybertekschool.com | UserUser |
   @AGIL-1598
   Scenario Outline: Users should not be able to login with invalid credentials
-    When user enter invalid username "<username>"
-    And user enter invalid password "<password>"
+    When "<user>" enter username "<username>"
+    And "<user>" enter password "<password>"
     And user click on login button
     Then user see the error message
 
     Examples:
-      | username                      | password |
-      | invalid                       | invalid  |
-      | helpdesk1@cybertekschool.com  | invalid  |
-      | hr1@cybertekschool.com        | invalid  |
-      | marketing1@cybertekschool.com | invalid  |
-      | invalid@cybertekschool.com    | UserUser |
-
+      | user    | username                      | password |
+      | invalid | invalid                       | invalid  |
+      | invalid | helpdesk1@cybertekschool.com  | invalid  |
+      | invalid | hr1@cybertekschool.com        | invalid  |
+      | invalid | marketing1@cybertekschool.com | invalid  |
+      | invalid | invalid@cybertekschool.com    | UserUser |
 
   @AGIL-1599
   Scenario:User should be able to click "Remember me on this computer" checkbox
@@ -95,9 +49,3 @@ Feature:As a user, I should be able to login
   Scenario:User should be able to click "FORGOT YOUR PASSWORD?" link
     When user click forgot password link
     Then get password page should be opened
-
-
-
-
-
-
