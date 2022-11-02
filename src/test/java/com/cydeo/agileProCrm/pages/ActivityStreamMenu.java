@@ -12,6 +12,9 @@ public class ActivityStreamMenu {
 
     }
 
+    @FindBy(xpath = "//a[@title='Activity Stream']")
+    public WebElement activityStream;
+
     @FindBy (id = "left-menu-settings")
     public WebElement configureMenuLink;
 

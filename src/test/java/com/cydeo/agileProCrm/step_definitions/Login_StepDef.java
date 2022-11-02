@@ -8,6 +8,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
 public class Login_StepDef {
     LoginPage login = new LoginPage();
@@ -24,6 +25,7 @@ public class Login_StepDef {
 
     @When("{string} enter username {string}")
     public void enter_username(String string, String username) {
+
         login.inputUsername.sendKeys(username);
     }
 

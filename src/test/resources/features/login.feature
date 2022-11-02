@@ -1,10 +1,10 @@
-
+@AGIL-1601
 Feature:As a user, I should be able to login
 
   Background:
     Given user is on login page
 
-
+  @AGIL-1597
   Scenario Outline:"<user>" should be able to login as
     When "<user>" enter username "<username>"
     And "<user>" enter password "<password>"
