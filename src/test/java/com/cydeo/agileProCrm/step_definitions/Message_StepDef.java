@@ -48,6 +48,7 @@ public class Message_StepDef extends TestBase {
 
     @Then("user click on Send button")
     public void user_click_on_send_button() {
+        wait.until(ExpectedConditions.visibilityOf(message.sendBtn));
         message.sendBtn.click();
     }
 

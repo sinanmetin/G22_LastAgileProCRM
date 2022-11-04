@@ -1,5 +1,6 @@
 package com.cydeo.agileProCrm.step_definitions;
 
+import com.cydeo.agileProCrm.base.TestBase;
 import com.cydeo.agileProCrm.pages.HomePage;
 import com.cydeo.agileProCrm.pages.LoginPage;
 import com.cydeo.agileProCrm.utilities.BrowserUtils;
@@ -10,8 +11,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class Logout_StepDef {
+public class Logout_StepDef extends TestBase {
 
     LoginPage login = new LoginPage();
     HomePage home = new HomePage();
@@ -88,6 +90,8 @@ public class Logout_StepDef {
     @Given("{string} login with {string} and {string}")
     public void login_with_and(String string, String username, String password) {
         login.login(username, password);
+        wait.until(ExpectedConditions.visibilityOf(ASM.activityStream));
+
     }
 
 
