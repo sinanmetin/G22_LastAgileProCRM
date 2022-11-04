@@ -93,6 +93,8 @@ public class MessageQM {
     @FindBy(id = "bx-b-quote-blogPostForm")
     public WebElement addQuoteBtn;
 
+    @FindBy(xpath = "//blockquote[@class='bxhtmled-quote']")
+    public WebElement quoteEntryFld;
 
     /////////ADD MENTION//////////////
     @FindBy(id = "bx-b-mention-blogPostForm")
@@ -151,6 +153,14 @@ public class MessageQM {
 
     @FindBy(xpath = "(//div[@class='feed-item-wrap'])[1]//div[@class='feed-post-text-block-inner-inner']")
     public WebElement textOfLastSentMessage;
+
+    @FindBy(xpath = "//table[@class='blogquote' ]//td")
+    public WebElement quoteOfLastSentMessage;
+
+    @FindBy(xpath = "//span[@class='feed-add-info-text']")
+    public WebElement emptyMsgErrTxt;
+
+
 
 
 
