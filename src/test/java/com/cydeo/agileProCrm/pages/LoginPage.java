@@ -57,6 +57,7 @@ public class LoginPage {
         inputUsername.sendKeys(username);
         inputPassword.sendKeys(password+Keys.ENTER);
     }
+    ////////////
 
 
 }
