@@ -180,7 +180,7 @@ public class Message_StepDef extends TestBase {
         String actErrMsg="The message title is not specified";
 
         Assert.assertEquals(emptyMessageError,actErrMsg);
-
-
     }
+    ////
+
 }
