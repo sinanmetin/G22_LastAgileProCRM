@@ -66,6 +66,7 @@ public class ActivityStreamMenu {
         String locator="//a[@title='"+linkText+"']";
        return Driver.getDriver().findElement(By.xpath(locator));
 
+       ///
     }
 
 
