@@ -7,7 +7,7 @@ Feature:As a user, I should be able to use "Services" functionality so that I ca
     Scenario: Helpdesk User can display "Event Calendar" after switching view from table view to
     calendar view by clicking "Meeting Room Booking Table View" on the "Meeting Room Booking" page
 
-      When user clicks on the Services link
+      When user clicks on "Services" on Activity Stream Menu
       And user enters Meeting Rooms page
       And user clicks on the Meeting Room Booking table view
       Then Event Calender displays
@@ -15,7 +15,7 @@ Feature:As a user, I should be able to use "Services" functionality so that I ca
     Scenario: Helpdesk Users can be redirected to the "New Event" page
     for booking a meeting room after clicking "Book meeting room".
 
-      When user clicks on the Services link
+      When user clicks on "Services" on Activity Stream Menu
       And user enters Meeting Rooms page
       And user clicks on the Meeting Room Booking table view
       And user clicks Book meeting room
