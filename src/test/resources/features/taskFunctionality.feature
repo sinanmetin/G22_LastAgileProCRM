@@ -11,3 +11,5 @@ Feature: As a user, I should be able to use "Tasks" functionality so that user c
 
     When HR user logged in and on home page
     Then user click "Task" on Quick Menu
+    Then user click "Event" on Quick Menu
+
