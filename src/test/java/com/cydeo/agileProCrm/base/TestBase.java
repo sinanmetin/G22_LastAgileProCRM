@@ -3,6 +3,7 @@ package com.cydeo.agileProCrm.base;
 import com.cydeo.agileProCrm.pages.ActivityStreamMenu;
 import com.cydeo.agileProCrm.pages.HomePage;
 import com.cydeo.agileProCrm.pages.LoginPage;
+import com.cydeo.agileProCrm.pages.ServicesPage;
 import com.cydeo.agileProCrm.pages.quickMenu.MessageQM;
 import com.cydeo.agileProCrm.utilities.Driver;
 import com.github.javafaker.Faker;
@@ -24,6 +25,8 @@ public abstract class TestBase {
 
     public MessageQM message=new MessageQM();
     public ActivityStreamMenu ASM=new ActivityStreamMenu();
+
+    public ServicesPage servicesPage= new ServicesPage();
 
 
 

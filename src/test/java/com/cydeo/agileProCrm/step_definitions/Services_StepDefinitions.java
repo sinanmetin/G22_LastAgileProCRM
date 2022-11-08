@@ -1,17 +1,23 @@
 package com.cydeo.agileProCrm.step_definitions;
 
+import com.cydeo.agileProCrm.base.TestBase;
 import com.cydeo.agileProCrm.pages.ServicesPage;
 import com.cydeo.agileProCrm.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class Services_StepDefinitions {
-ServicesPage servicesPage= new ServicesPage();
-    @When("user clicks on the Services link")
-    public void user_clicks_on_the_services_link() {
-    servicesPage.serviceBtn.click();
+public class Services_StepDefinitions extends TestBase {
+
+
+    @When("user clicks on {string} on Activity Stream Menu")
+    public void userClicksOnOnActivityStreamMenu(String linkText) {
+
+        ASM.activityStreamMenuClick(linkText);
+
     }
+
+
     @When("user enters Meeting Rooms page")
     public void user_enters_meeting_rooms_page() {
         Assert.assertTrue(Driver.getDriver().getTitle().contains("Meeting Rooms"));
@@ -33,6 +39,7 @@ ServicesPage servicesPage= new ServicesPage();
     public void new_event_page_is_opened() {
     Assert.assertTrue(servicesPage.newEvent.isDisplayed());
     }
+
 
 
 }
