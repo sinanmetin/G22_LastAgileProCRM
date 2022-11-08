@@ -90,7 +90,6 @@ public class Logout_StepDef extends TestBase {
     @Given("{string} login with {string} and {string}")
     public void login_with_and(String string, String username, String password) {
         login.login(username, password);
-        wait.until(ExpectedConditions.visibilityOf(ASM.activityStream));
 
     }
 

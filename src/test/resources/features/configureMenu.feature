@@ -16,7 +16,7 @@ Feature: As a user, I should be able to configure menu; so that I can edit the m
 
     Examples:
       | user      | username                       | password |
-      | HR        | hr15@cybertekschool.com         | UserUser |
+      | HR        | hr15@cybertekschool.com        | UserUser |
       | Helpdesk  | helpdesk84@cybertekschool.com  | UserUser |
       | Marketing | marketing58@cybertekschool.com | UserUser |
 
@@ -30,7 +30,7 @@ Feature: As a user, I should be able to configure menu; so that I can edit the m
 
     Examples:
       | user      | username                       | password |
-      | HR        | hr15@cybertekschool.com         | UserUser |
+      | HR        | hr15@cybertekschool.com        | UserUser |
       | Helpdesk  | helpdesk84@cybertekschool.com  | UserUser |
       | Marketing | marketing58@cybertekschool.com | UserUser |
 
@@ -45,6 +45,6 @@ Feature: As a user, I should be able to configure menu; so that I can edit the m
 
     Examples:
       | user      | username                       | password |
-      | HR        | hr15@cybertekschool.com         | UserUser |
+      | HR        | hr15@cybertekschool.com        | UserUser |
       | Helpdesk  | helpdesk84@cybertekschool.com  | UserUser |
       | Marketing | marketing58@cybertekschool.com | UserUser |
