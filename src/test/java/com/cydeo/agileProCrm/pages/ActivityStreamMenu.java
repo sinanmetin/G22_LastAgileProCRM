@@ -1,5 +1,6 @@
 package com.cydeo.agileProCrm.pages;
 
+import com.cydeo.agileProCrm.utilities.BrowserUtils;
 import com.cydeo.agileProCrm.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,9 @@ public class ActivityStreamMenu {
 
     @FindBy(xpath = "//a[@title='Activity Stream']")
     public WebElement activityStream;
+
+    @FindBy(css = "div#left-menu-more-btn")
+    public WebElement moreBtn;
 
 
     ///////////////--CONFIGURE MENU--/////////////////////////////
@@ -61,10 +65,27 @@ public class ActivityStreamMenu {
     @FindBy (xpath = "(//span[.='Reset menu'])[2]")
     public WebElement resetMenu;
 
-    public WebElement activityStreamMenuLocator(String linkText){
+
+
+
+
+    /**
+    * This method click on Activity Stream Menu Web Elements
+    * with using Text Name
+     * for hidden menu it clicks first more button than menu item
+    * @param linkText
+    * */
+    public void activityStreamMenuClick (String linkText){
 
         String locator="//a[@title='"+linkText+"']";
-       return Driver.getDriver().findElement(By.xpath(locator));
+
+        if(linkText.equals("Application")||linkText.equals("Workflows")){
+            BrowserUtils.waitForClickablility(moreBtn,10).click();
+            BrowserUtils.waitForClickablility(By.xpath(locator),10).click();
+
+        }else {
+            BrowserUtils.waitForClickablility(By.xpath(locator), 10).click();
+        }
 
        ///
     }
