@@ -15,14 +15,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class Message_StepDef extends TestBase {
 
     ////////////////////---AC-1---/////////////////////////////////////////////////
+    @When("user click on MESSAGE link")
+    public void user_click_on_message_link() {
 
-    @When("user click {string} on Quick Menu")
-    public void userClickOnQuickMenu(String linkText) {
-       BrowserUtils.waitForClickablility(ASM.activityStream,10).click();
-        homePage.quickMenuClick(linkText);
+        wait.until(ExpectedConditions.visibilityOf(ASM.activityStream));
+        ASM.activityStream.click();
+
+        message.message.click();
     }
-
-
 
     @When("user click on Upload Files link")
     public void user_click_on_upload_files_link() {
@@ -181,8 +181,6 @@ public class Message_StepDef extends TestBase {
 
         Assert.assertEquals(emptyMessageError,actErrMsg);
     }
-
-
     //////////
 
 }

@@ -1,13 +1,4 @@
 package com.cydeo.agileProCrm.step_definitions;
 
-public class TaskFunctionality_StepDef {
-
-
-
-
-
-
-
-
-
+public class Poll_StepDefinitions {
 }

@@ -1,4 +1,4 @@
-@wip
+
 Feature:As a user, I should be able to use "Services" functionality so that I can take advantage of company's services.
   Background:
     Given user is on login page

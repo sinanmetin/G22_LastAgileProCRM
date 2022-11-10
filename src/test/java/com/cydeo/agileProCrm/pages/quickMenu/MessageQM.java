@@ -113,7 +113,7 @@ public class MessageQM {
     @FindBy(xpath = "//span[@class='feed-add-post-del-but'][1]")
     public WebElement deleteReceiver;
 
-    @FindBy(xpath = "//a[contains(@id,'destDepartmentTab_destination')]")
+    @FindBy(xpath = "//a[contains(@id,'destDepartmentTab')]")
     public WebElement empAndDeptList;
 
     @FindBy(xpath = "//a[@href='#U590' and @class='bx-finder-company-department-employee  bx-finder-element']")
