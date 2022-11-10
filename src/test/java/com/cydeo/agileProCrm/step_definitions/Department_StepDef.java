@@ -1,17 +1,21 @@
 package com.cydeo.agileProCrm.step_definitions;
 
+import com.cydeo.agileProCrm.base.TestBase;
 import com.cydeo.agileProCrm.pages.DepartmentPage;
 import com.cydeo.agileProCrm.utilities.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
-public class Department_StepDef {
+public class Department_StepDef extends TestBase {
 
     DepartmentPage department = new DepartmentPage();
 
-    Faker faker = new Faker();
+    String departmentName = faker.funnyName().name();
+
+
 
     @And("user click on the Employees button")
     public void userClickOnTheEmployeesButton() {
@@ -35,8 +39,8 @@ public class Department_StepDef {
 
     @And("user type any department name")
     public void userTypeAnyDepartmentName() {
-        String fakerName = faker.funnyName().name();
-        department.departmentName.sendKeys(fakerName);
+
+        department.departmentNameinput.sendKeys(departmentName);
     }
 
     @And("user click on the add button")
@@ -46,24 +50,8 @@ public class Department_StepDef {
 
     @Then("user should see the department he added")
     public void userShouldSeeTheDepartmentHeAdded() {
+        Assert.assertTrue(Driver.getDriver().findElement(By.linkText(departmentName)).isDisplayed());
 
-
-    }
-
-    @And("user click on the find employee button")
-    public void userClickOnTheFindEmployeeButton() {
-    }
-
-    @And("user click on the More... button")
-    public void userClickOnTheMoreButton() {
-    }
-
-    @And("user click on the export to excel button")
-    public void userClickOnTheExportToExcelButton() {
-    }
-
-    @Then("user should be able to export the employee list on an excel file")
-    public void userShouldBeAbleToExportTheEmployeeListOnAnExcelFile() {
     }
 
     @And("user click on the telephone directory button")
@@ -76,5 +64,23 @@ public class Department_StepDef {
         String expectedUrl = "https://qa.agileprocrm.com/company/telephones.php?login=yes";
         String actualUrl = Driver.getDriver().getCurrentUrl();
         Assert.assertEquals(expectedUrl,actualUrl);
+    }
+
+
+    @And("user click on any employee")
+    public void userClickOnAnyEmployee() {
+
+    }
+
+    @And("user click on send message button")
+    public void userClickOnSendMessageButton() {
+    }
+
+    @And("user types a message and clicks the enter button")
+    public void userTypesAMessageAndClicksTheEnterButton() {
+    }
+
+    @Then("user should send the message")
+    public void userShouldSendTheMessage() {
     }
 }

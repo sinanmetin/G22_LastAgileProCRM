@@ -24,8 +24,8 @@ public class DepartmentPage {
     @FindBy(linkText = "Add department")
     public WebElement addDepartment;
 
-    @FindBy(id = "NAME")
-    public WebElement departmentName;
+    @FindBy(id = "id=\"NAME\"")
+    public WebElement departmentNameinput;
 
     @FindBy(id = "Add")
     public WebElement addButton;
