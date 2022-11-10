@@ -1,9 +1,6 @@
 package com.cydeo.agileProCrm.base;
 
-import com.cydeo.agileProCrm.pages.ActivityStreamMenu;
-import com.cydeo.agileProCrm.pages.HomePage;
-import com.cydeo.agileProCrm.pages.LoginPage;
-import com.cydeo.agileProCrm.pages.ServicesPage;
+import com.cydeo.agileProCrm.pages.*;
 import com.cydeo.agileProCrm.pages.quickMenu.MessageQM;
 import com.cydeo.agileProCrm.utilities.Driver;
 import com.github.javafaker.Faker;
@@ -32,9 +29,10 @@ public abstract class TestBase {
 
     public HomePage homePage=new HomePage();
     public LoginPage loginPage=new LoginPage();
+    public TaskPage task=new TaskPage();
 
 
-   //merve
+
 
 
 
