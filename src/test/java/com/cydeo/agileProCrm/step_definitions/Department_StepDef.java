@@ -2,12 +2,14 @@ package com.cydeo.agileProCrm.step_definitions;
 
 import com.cydeo.agileProCrm.base.TestBase;
 import com.cydeo.agileProCrm.pages.DepartmentPage;
+import com.cydeo.agileProCrm.utilities.BrowserUtils;
 import com.cydeo.agileProCrm.utilities.Driver;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 public class Department_StepDef extends TestBase {
 
@@ -19,7 +21,9 @@ public class Department_StepDef extends TestBase {
 
     @And("user click on the Employees button")
     public void userClickOnTheEmployeesButton() {
+        BrowserUtils.sleep(5);
         Driver.getDriver().navigate().refresh();
+        BrowserUtils.sleep(5);
         department.employeesButton.click();
 
     }

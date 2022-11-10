@@ -18,7 +18,7 @@ public class DepartmentPage {
 
 
 
-    @FindBy(linkText = "Employees")
+    @FindBy(xpath = "//a/span[contains(text(),'Employees')]")
     public WebElement employeesButton;
 
     @FindBy(linkText = "Add department")

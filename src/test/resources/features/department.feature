@@ -1,4 +1,3 @@
-
 Feature: AC-1 User should be able to display the company structure.
 
   Background:
@@ -15,7 +14,8 @@ Feature: AC-1 User should be able to display the company structure.
       | Helpdesk  | helpdesk18@cybertekschool.com  | UserUser |
       | Marketing | marketing25@cybertekschool.com | UserUser |
 
-  @smoke
+
+  @wip
   Scenario Outline: 2. User should be able to add a department
     When "<user>" login with "<username>" and "<password>"
     And user click on the Employees button
@@ -25,12 +25,10 @@ Feature: AC-1 User should be able to display the company structure.
     Then user should see the department he added
 
     Examples:
-      | user      | username                       | password |
-      | HR        | hr36@cybertekschool.com        | UserUser |
-      | Helpdesk  | helpdesk18@cybertekschool.com  | UserUser |
-      | Marketing | marketing25@cybertekschool.com | UserUser |
-
-
+      | user | username                | password |
+      | HR   | hr39@cybertekschool.com | UserUser |
+      | HR   | hr18@cybertekschool.com | UserUser |
+      | HR   | hr25@cybertekschool.com | UserUser |
 
 
   Scenario Outline: 6. User should be able to display the telephone directory
@@ -45,18 +43,18 @@ Feature: AC-1 User should be able to display the company structure.
       | Helpdesk  | helpdesk18@cybertekschool.com  | UserUser |
       | Marketing | marketing25@cybertekschool.com | UserUser |
 
-    Scenario Outline: 7. User should be able to send messages to employee from the telephone directory
-      When "<user>" login with "<username>" and "<password>"
-      And user click on the Employees button
-      And user click on the telephone directory button
-      And user click on any employee
-      And user click on send message button
-      And user types a message and clicks the enter button
-      Then user should send the message
+  Scenario Outline: 7. User should be able to send messages to employee from the telephone directory
+    When "<user>" login with "<username>" and "<password>"
+    And user click on the Employees button
+    And user click on the telephone directory button
+    And user click on any employee
+    And user click on send message button
+    And user types a message and clicks the enter button
+    Then user should send the message
 
-      Examples:
-        | user      | username                       | password |
-        | HR        | hr36@cybertekschool.com        | UserUser |
-        | Helpdesk  | helpdesk18@cybertekschool.com  | UserUser |
-        | Marketing | marketing25@cybertekschool.com | UserUser |
+    Examples:
+      | user      | username                       | password |
+      | HR        | hr36@cybertekschool.com        | UserUser |
+      | Helpdesk  | helpdesk18@cybertekschool.com  | UserUser |
+      | Marketing | marketing25@cybertekschool.com | UserUser |
 
