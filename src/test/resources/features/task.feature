@@ -1,4 +1,4 @@
-@wip
+
 Feature: As a user, I should be able to use "Tasks" functionality so that user can create,
   change, delete and track the tasks either on Activity Stream or Tasks page.
 
