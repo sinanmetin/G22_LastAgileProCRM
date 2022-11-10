@@ -15,7 +15,16 @@ public class CompanyPage {
     }
 
     @FindBy(xpath = "//span[.='Add News']")
-    public WebElement AddNewsBtn;
+    public WebElement addNewsBtn;
+
+    @FindBy(xpath = "//span[.='Preview text']")
+    public WebElement previewText;
+
+    @FindBy(name = "PROP[3][]")
+    public WebElement typeDropdown;
+
+    @FindBy(className = "adm-calendar-icon")
+    public WebElement calendarIcon;
 
 
 
