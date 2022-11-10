@@ -3,10 +3,13 @@ package com.cydeo.agileProCrm.base;
 import com.cydeo.agileProCrm.pages.ActivityStreamMenu;
 import com.cydeo.agileProCrm.pages.HomePage;
 import com.cydeo.agileProCrm.pages.LoginPage;
+import com.cydeo.agileProCrm.pages.ServicesPage;
 import com.cydeo.agileProCrm.pages.quickMenu.MessageQM;
 import com.cydeo.agileProCrm.utilities.Driver;
 import com.github.javafaker.Faker;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -23,10 +26,14 @@ public abstract class TestBase {
     public MessageQM message=new MessageQM();
     public ActivityStreamMenu ASM=new ActivityStreamMenu();
 
+    public ServicesPage servicesPage= new ServicesPage();
+
 
 
     public HomePage homePage=new HomePage();
     public LoginPage loginPage=new LoginPage();
+
+
 
 
 

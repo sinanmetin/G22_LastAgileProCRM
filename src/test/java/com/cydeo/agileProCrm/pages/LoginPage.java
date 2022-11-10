@@ -1,5 +1,6 @@
 package com.cydeo.agileProCrm.pages;
 
+import com.cydeo.agileProCrm.utilities.BrowserUtils;
 import com.cydeo.agileProCrm.utilities.ConfigurationReader;
 import com.cydeo.agileProCrm.utilities.Driver;
 import org.openqa.selenium.Keys;
@@ -40,22 +41,34 @@ public class LoginPage {
 
     public void loginHR() {
         inputUsername.sendKeys(ConfigurationReader.getProperty("username.hr"));
-        inputPassword.sendKeys(ConfigurationReader.getProperty("password")+Keys.ENTER);
+        BrowserUtils.sleep(1);
+        inputPassword.sendKeys(ConfigurationReader.getProperty("password"));
+        BrowserUtils.waitForClickablility(loginBtn,10).click();
+        BrowserUtils.waitForPageToLoad(10);
     }
 
     public void loginHelpDesk() {
         inputUsername.sendKeys(ConfigurationReader.getProperty("username.helpdesk"));
-        inputPassword.sendKeys(ConfigurationReader.getProperty("password")+Keys.ENTER);
+        BrowserUtils.sleep(1);
+        inputPassword.sendKeys(ConfigurationReader.getProperty("password"));
+        BrowserUtils.waitForClickablility(loginBtn,10).click();
+        BrowserUtils.waitForPageToLoad(10);
     }
 
     public void loginMarketing() {
         inputUsername.sendKeys(ConfigurationReader.getProperty("username.marketing"));
-        inputPassword.sendKeys(ConfigurationReader.getProperty("password")+Keys.ENTER);
+        BrowserUtils.sleep(1);
+        inputPassword.sendKeys(ConfigurationReader.getProperty("password"));
+        BrowserUtils.waitForClickablility(loginBtn,10).click();
+        BrowserUtils.waitForPageToLoad(10);
     }
 
     public void login(String username, String password) {
         inputUsername.sendKeys(username);
-        inputPassword.sendKeys(password+Keys.ENTER);
+        BrowserUtils.sleep(1);
+        inputPassword.sendKeys(password);
+        BrowserUtils.waitForClickablility(loginBtn,10).click();
+        BrowserUtils.waitForPageToLoad(10);
     }
     ////////////
 
