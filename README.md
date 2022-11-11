@@ -1,5 +1,5 @@
 # Agile Pro CRM
-This is a test framework for Agile Pro Crm application. Major functions of application are testing in this framework.
+This is a maven based test framework for Agile Pro Crm application. Major functions of application are testing with BDD approach in this framework.
 
 ## Tools
 Cucumber, Junit
