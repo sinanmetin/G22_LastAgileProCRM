@@ -3,7 +3,9 @@ package com.cydeo.agileProCrm.step_definitions;
 import com.cydeo.agileProCrm.base.TestBase;
 import com.cydeo.agileProCrm.pages.LoginPage;
 import com.cydeo.agileProCrm.pages.ServicesPage;
+import com.cydeo.agileProCrm.utilities.ConfigurationReader;
 import com.cydeo.agileProCrm.utilities.Driver;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
@@ -11,7 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
 public class Services_StepDefinitions extends TestBase {
-LoginPage loginPage= new LoginPage();
+
 
     @When("user clicks on {string} on Activity Stream Menu")
     public void userClicksOnOnActivityStreamMenu(String linkText) {
@@ -114,11 +116,13 @@ LoginPage loginPage= new LoginPage();
     }
 
 
-
-
-
-
-
-
-
+    @Given("{string} users logged in and on home page")
+    public void usersLoggedInAndOnHomePage(String arg0) {
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        loginPage.inputUsername.clear();
+        loginPage.inputPassword.clear();
+        loginPage.inputUsername.sendKeys(arg0);
+        loginPage.inputPassword.sendKeys("UserUser");
+        loginPage.loginBtn.click();
+    }
 }
