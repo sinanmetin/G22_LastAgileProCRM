@@ -15,7 +15,7 @@ Feature: AC-1 User should be able to display the company structure.
       | Marketing | marketing25@cybertekschool.com | UserUser |
 
 
-  @wip
+
   Scenario Outline: 2. User should be able to add a department
     When "<user>" login with "<username>" and "<password>"
     And user click on the Employees button
