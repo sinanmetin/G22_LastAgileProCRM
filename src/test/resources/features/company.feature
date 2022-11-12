@@ -1,4 +1,4 @@
-@wip
+
 Feature: As a user, I should be able to add news under Company
 
   Background:

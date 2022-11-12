@@ -1,5 +1,7 @@
 package com.cydeo.agileProCrm.pages;
 
+import com.cydeo.agileProCrm.base.TestBase;
+import com.cydeo.agileProCrm.pages.quickMenu.MessageQM;
 import com.cydeo.agileProCrm.utilities.BrowserUtils;
 import com.cydeo.agileProCrm.utilities.Driver;
 import org.openqa.selenium.By;
@@ -7,13 +9,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class TaskPage {
+public class TaskPage{
 
     public TaskPage(){
 
         PageFactory.initElements(Driver.getDriver(),this);
 
     }
+
 
     ///////Task Page General///////////////////
     @FindBy (id ="tasks-buttonAdd" )
@@ -51,6 +54,14 @@ public class TaskPage {
     @FindBy(xpath = "//span[@class='bx-calendar-button-text' and .='Select']")
     public WebElement selectDeadline;
 
+    @FindBy(xpath = "//a[contains (text(), 'Change') and @class='js-id-tdp-mem-sel-is-open-form task-form-field-link']")
+    public WebElement changeBtn;
+
+    @FindBy(xpath = "//div[@id='bx-component-scope-bitrix_tasks_widget_member_selectorview_3']//span[.='change']")
+    public WebElement respPersonQuickChange;
+
+    @FindBy (xpath = "//span[@class='side-panel-close-inner']")
+    public WebElement sidePanelClose;
 
     @FindBy (xpath =   "//span[@data-bx-id='task-edit-toggler' and .='Created by']" )
     public WebElement createdBy;
@@ -94,6 +105,29 @@ public class TaskPage {
         BrowserUtils.waitForClickablility(By.xpath(locator),10).click();
 
     }
+
+    public WebElement userFinder(String email){
+        String locator="//div[.='"+email+"' and @class='bx-finder-company-department-employee-name']";
+        return Driver.getDriver().findElement(By.xpath(locator));
+    }
+
+
+
+
+    public WebElement findTask(String taskName){
+        String locator="//a[.='"+taskName+"']";
+        return Driver.getDriver().findElement(By.xpath(locator));
+    }
+
+
+    //////TASK PAGE TABLE UTILS///////////
+    public WebElement findRespPsn(String taskName){
+        String locator="//a[.='"+taskName+"']/../../following-sibling::td[3]//span[@class='tasks-grid-username-inner ']";
+        return Driver.getDriver().findElement(By.xpath(locator));
+    }
+
+
+
 
 
 
