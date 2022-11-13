@@ -5,6 +5,7 @@ import com.cydeo.agileProCrm.pages.quickMenu.Appreciate_Page;
 import com.cydeo.agileProCrm.utilities.BrowserUtils;
 import com.cydeo.agileProCrm.utilities.ConfigurationReader;
 import com.cydeo.agileProCrm.utilities.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,15 +15,22 @@ public class Appreciate_StepDef extends TestBase {
 
     Appreciate_Page appreciate = new Appreciate_Page();
 
+    @When("user click more on Menu")
+    public void user_click_more_on_menu(){
+        appreciate.moreBtn.click();
+
+    }
+
     @When("user click {string} on Quick Menu")
     public void user_click_on_quick_menu(String linkText) {
         BrowserUtils.waitForClickablility(ASM.activityStream,10).click();
         homePage.quickMenuClick(linkText);
     }
     @When("user click on Upload Files icon")
-    public void user_click_on_upload_files_icon() {
+    public void user_click_on_upload_files_icon()  {
 
         appreciate.uploadFilesBtn.click();
+
     }
 
     @Then("user click on Upload Files and images and choose an image")
@@ -30,12 +38,13 @@ public class Appreciate_StepDef extends TestBase {
         appreciate.uploadFilesAndImagesBtn.sendKeys(ConfigurationReader.getProperty("flower"));
     }
     @Then("user click on insert in text")
-    public void user_click_on_insert_in_text() {
+    public void user_click_on_insert_in_text()  {
         appreciate.insertInText1.click();
+
     }
     @Then("user click on Upload Files and images and upload a file")
     public void user_click_on_upload_files_and_images_and_upload_a_file() {
-        appreciate.uploadFilesAndImagesBtn.sendKeys(ConfigurationReader.getProperty("testData1"));
+        appreciate.uploadFilesAndImagesBtn.sendKeys(ConfigurationReader.getProperty("Cydeo"));
     }
     @Then("user click on insert in text again")
     public void user_click_on_insert_in_text_again() {
@@ -43,15 +52,59 @@ public class Appreciate_StepDef extends TestBase {
         appreciate.insertInText2.click();
     }
 
+    @Then("user click on select document from Bitrix24")
+    public void user_click_on_select_document_from_bitrix24() {
+        appreciate.selectDocumentFromBitrix24.click();
+    }
+    @Then("user click on Sales and marketing")
+    public void user_click_on_sales_and_marketing() {
+        appreciate.salesAndMarketingBtn.click();
+        appreciate.MyDriveBtn.click();
+        appreciate.salesAndMarketingBtn.click();
 
-    @Then("image and file should be uploaded")
+    }
+    @Then("user select Agile Pro CRM Test Plan")
+    public void user_select_agile_pro_crm_test_plan() {
+        BrowserUtils.sleep(2);
+        appreciate.AgileProCRMTestPlanFile.click();
+
+    }
+    @Then("user click on SELECT DOCUMENT button")
+    public void user_click_on_select_document_button() {
+        appreciate.selectDocumentBtn.click();
+    }
+    @Then("user click on in text button")
+    public void user_click_on_in_text_button() {
+        appreciate.insexInText3.click();
+    }
+
+
+   /* @Then("image and file should be uploaded")
     public void imageAndFileShouldBeUploaded() {
 
         Driver.getDriver().switchTo().frame(appreciate.ifram);
 
-        Assert.assertTrue(appreciate.uploadedFile1.isDisplayed());
-        Assert.assertTrue(appreciate.uploadedFile2.isDisplayed());
+        Assert.assertTrue(appreciate.File1Confirm.isDisplayed());
+        Assert.assertTrue(appreciate.File2Confirm.isDisplayed());
 
+        Driver.getDriver().switchTo().defaultContent();
+
+    }*/
+
+    @Then("user click on Download from external drive")
+    public void userClickOnDownloadFromExternalDrive() {
+        appreciate.DownloadFromExternalDrive.click();
+    }
+
+    @And("user click on Office 365")
+    public void userClickOnOffice() {
+        appreciate.office365.click();
+    }
+
+    @Then("user see a notification that should contact to Administrator#Then image and file should be uploaded")
+    public void userSeeANotificationThatShouldContactToAdministratorThenImageAndFileShouldBeUploaded() {
+        Assert.assertTrue(appreciate.AdminNotification.isDisplayed());
+        appreciate.cancelBtn.click();
     }
 
     @Then("user click the send button")
@@ -71,10 +124,7 @@ public class Appreciate_StepDef extends TestBase {
     public void user_click_on_employees_and_departments_button_and_choose_helpdesk9_user_from_hr_department() {
 
     }
-    @Then("user click on E-mail users, but there is no user there")
-    public void user_click_on_e_mail_users_but_there_is_no_user_there() {
 
-    }
     @Then("user click on X button to close contacts")
     public void user_click_on_x_button_to_close_contacts() {
 
