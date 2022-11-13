@@ -26,6 +26,54 @@ public class CompanyPage {
     @FindBy(className = "adm-calendar-icon")
     public WebElement calendarIcon;
 
+    @FindBy(className = "bx-calendar-top-year")
+    public WebElement yearDropdown;
+
+    @FindBy(className = "bx-calendar-top-month")
+    public WebElement monthDropdown;
+
+    @FindBy(xpath = "//span[.='Select']")
+    public WebElement selectButton;
+
+    @FindBy(xpath = "//input[@name='ACTIVE_FROM']")
+    public WebElement dateField;
+
+    @FindBy(xpath = "//span[.='Details']")
+    public WebElement detailsMenu;
+
+    @FindBy(id = "bx_file_detail_picture_add")
+    public WebElement addFileBtn;
+
+    @FindBy(xpath = "//span[.='Insert file path']/.")
+    public WebElement insertFilePathBtn;
+
+    @FindBy(xpath = "//span[.='Add']")
+    public WebElement addButton;
+
+    @FindBy(xpath = "//span[@class='adm-fileinput-item-panel-btn adm-btn-del']")
+    public WebElement removeBtn;
+
+    //    @FindBy(className = "adm-fileinput-area-input")
+//    public WebElement uploadFileBtn;
+
+    @FindBy(xpath = "//div[@class='adm-fileinput-item-preview']")
+    public WebElement addedPicture;
+
+    @FindBy(xpath = "//span[contains(., ' Drag an image')]")
+    public WebElement blankPictureField;
+
+    @FindBy(id = "bx_file_detail_picturefilePath_0_path")
+    public WebElement linkField;
+
+    @FindBy(xpath = "//span[@class='adm-fileinput-item-panel-btn adm-btn-setting']")
+    public WebElement editIcon;
+
+    @FindBy(id = "popupFM")
+    public WebElement editWindow;
+
+
+
+
 
 
 }
