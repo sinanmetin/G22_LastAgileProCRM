@@ -63,6 +63,7 @@ public class TaskPage{
     @FindBy (xpath = "//span[@class='side-panel-close-inner']")
     public WebElement sidePanelClose;
 
+
     @FindBy (xpath =   "//span[@data-bx-id='task-edit-toggler' and .='Created by']" )
     public WebElement createdBy;
 
@@ -71,6 +72,9 @@ public class TaskPage{
 
     @FindBy (xpath =   "//span[@data-bx-id='task-edit-toggler' and .='Observers']" )
     public WebElement observers;
+
+    @FindBy(xpath = "//a[@class='task-view-button edit ui-btn ui-btn-link']")
+    public WebElement editBtn;
 
     @FindBy (css = "div.task-additional-alt-more")
     public WebElement moreBtn;
@@ -84,6 +88,24 @@ public class TaskPage{
     @FindBy (xpath = "//input[contains(@class,'js-id-timeestimate-minute')]")
     public WebElement timeTrackingMinute;
 
+    @FindBy(xpath = "//button[@data-bx-id='task-edit-submit']")
+    public WebElement taskEditSubmit;
+
+
+    @FindBy(xpath = "//a[@data-bx-id='task-item-set-open-form'][1]/span[.='+ Add']")
+    public WebElement subtaskOfAddBtn;
+
+    @FindBy(css = "input#parenttask_task_input")
+    public WebElement searchFldForSubTask;
+
+    @FindBy(xpath = "//div[@class='finder-box-item finder-box-item-selected']")
+    public WebElement searchedTask;
+
+    @FindBy (xpath = "//span[@class='popup-window-button popup-window-button-accept']")
+    public WebElement selectSubTaskBtn;
+
+
+
     @FindBy (xpath = "//a[contains(@class,'js-id-tag-sel-open-form')]/span[2]")
     public WebElement tagsAddBtn;
 
@@ -96,6 +118,9 @@ public class TaskPage{
 
     @FindBy(xpath = "//button[@data-bx-id='task-edit-submit'][1]")
     public WebElement addTaskBtn;
+
+        @FindBy(xpath = "//a[@class='menu-item-plus-icon']")
+    public WebElement quickTaskPlusIcon;
 
 
 
@@ -123,6 +148,11 @@ public class TaskPage{
     //////TASK PAGE TABLE UTILS///////////
     public WebElement findRespPsn(String taskName){
         String locator="//a[.='"+taskName+"']/../../following-sibling::td[3]//span[@class='tasks-grid-username-inner ']";
+        return Driver.getDriver().findElement(By.xpath(locator));
+    }
+
+    public WebElement findSubTaskPlusIcon(String taskName){
+        String locator="//a[.='"+taskName+"']//preceding-sibling::span[1]";
         return Driver.getDriver().findElement(By.xpath(locator));
     }
 

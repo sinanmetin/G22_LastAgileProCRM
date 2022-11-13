@@ -50,7 +50,7 @@ public class Task_StepDef extends TestBase {
     @And("user select {string} for created by")
     public void userSelectForCreatedBy(String email) {
         task.taskEditTogClicker("Created by");
-        BrowserUtils.waitForClickablility(task.changeBtn,10).click();
+        BrowserUtils.waitForClickablility(task.changeBtn, 10).click();
         findAndClickOnUser(email);
 
     }
@@ -67,16 +67,16 @@ public class Task_StepDef extends TestBase {
     @When("user click on Save button")
     public void user_click_on_save_button() {
         task.addTaskBtn.click();
+        Driver.getDriver().switchTo().defaultContent();
+
 
     }
 
     @Then("user should see the Task under My tasks List")
     public void user_should_see_the_task_under_my_tasks_list() {
 
-        Driver.getDriver().switchTo().defaultContent();
-        BrowserUtils.waitForPageToLoad(10);
-        Assert.assertTrue(task.findTask(taskName).isDisplayed());
 
+        Assert.assertTrue(task.findTask(taskName).isDisplayed());
 
 
     }
@@ -84,7 +84,7 @@ public class Task_StepDef extends TestBase {
     @And("write task name to the Exel sheet")
     public void writeTaskNameToTheExelSheet() {
 
-        XSSFSheet sheet=ExcelUtil.openAndGetSheet("Sinan");
+        XSSFSheet sheet = ExcelUtil.openAndGetSheet("Sinan");
 
         sheet.getRow(1).getCell(1).setCellValue(taskName);
 
@@ -92,26 +92,34 @@ public class Task_StepDef extends TestBase {
 
     }
 
+    ////////////////------AC2-------/////////////////////////////////////
+
 
     @When("user login {string} {string}")
     public void user_login(String username, String password) {
-        loginPage.login(username,password);
+        loginPage.login(username, password);
     }
 
+    @And("get related task name from Exel sheet")
+    public void getRelatedTaskNameFromExelSheet() {
+        XSSFSheet sheet = ExcelUtil.openAndGetSheet("Sinan");
+        relatedTask = sheet.getRow(1).getCell(1).toString();
+
+    }
 
     @And("user click related task")
     public void userClickRelatedTask() {
 
-        XSSFSheet sheet = ExcelUtil.openAndGetSheet("Sinan");
-        relatedTask=sheet.getRow(1).getCell(1).toString();
-        BrowserUtils.waitForClickablility(task.findTask(relatedTask),10).click();
+
+        BrowserUtils.waitForClickablility(task.findTask(relatedTask), 10).click();
+
 
     }
 
     @And("user declare {string} as responsible person")
     public void userDeclareHimselfAsResponsiblePerson(String email) {
         Driver.getDriver().switchTo().frame(task.sidePanelIframe);
-        BrowserUtils.waitForClickablility(task.respPersonQuickChange,10).click();
+        BrowserUtils.waitForClickablility(task.respPersonQuickChange, 10).click();
         findAndClickOnUser(email);
         Driver.getDriver().switchTo().defaultContent();
         task.sidePanelClose.click();
@@ -123,26 +131,127 @@ public class Task_StepDef extends TestBase {
     public void userShouldSeeHimselfAsResponsiblePerson(String email) {
 
 
-        Assert.assertEquals(email,task.findRespPsn(relatedTask).getText());
+        Assert.assertEquals(email, task.findRespPsn(relatedTask).getText());
 
 
     }
-
 
 
     ////////METHODS///////////////////////////////
 
-    public void findAndClickOnUser(String email){
+    public void findAndClickOnUser(String email) {
 
-        String locator="//div[.='"+email+"' and @class='bx-finder-company-department-employee-name']";
+        String locator = "//div[.='" + email + "' and @class='bx-finder-company-department-employee-name']";
         BrowserUtils.waitForClickablility(message.empAndDeptList, 10).click();
-        BrowserUtils.scrollToElement( Driver.getDriver().findElement(By.xpath(locator)));
-        BrowserUtils.waitForClickablility( Driver.getDriver().findElement(By.xpath(locator)), 10).click();
+        BrowserUtils.scrollToElement(Driver.getDriver().findElement(By.xpath(locator)));
+        BrowserUtils.waitForClickablility(Driver.getDriver().findElement(By.xpath(locator)), 10).click();
 
 
     }
 
+////////////////////////////////////////////////////////////
 
+    ////////////-----------AC-3-----------//////////////////////
+
+    @And("user click on last created task")
+    public void userClickOnLastCreatedTask() {
+        BrowserUtils.waitForClickablility(task.findTask(taskName), 10).click();
+    }
+
+    @And("user click on Edit button")
+    public void userClickOnEditButton() {
+        Driver.getDriver().switchTo().frame(task.sidePanelIframe);
+        BrowserUtils.waitForClickablility(task.editBtn, 10).click();
+
+    }
+
+    @And("user clicks on More button")
+    public void userClicksOnMoreButton() {
+        BrowserUtils.waitForClickablility(task.moreBtn, 10).click();
+    }
+
+    @And("user set Time Tracking {string} hours {string} minutes")
+    public void userSetTimeTrackingHoursMinutes(String hour, String minute) {
+
+
+        BrowserUtils.scrollToElement(task.allowTimeTracking);
+        BrowserUtils.waitForClickablility(task.allowTimeTracking, 10).click();
+        BrowserUtils.waitForClickablility(task.timeTrackingHour, 10).sendKeys(hour);
+        BrowserUtils.waitForClickablility(task.timeTrackingMinute, 10).sendKeys(minute);
+
+
+    }
+
+    @And("user click on Save Changes button")
+    public void userClickOnSaveChangesButton() {
+        task.taskEditSubmit.click();
+        Driver.getDriver().switchTo().defaultContent();
+        task.sidePanelClose.click();
+
+    }
+
+    @Then("user should see timer under the task name")
+    public void userShouldSeeTimerUnderTheTaskName() {
+
+        String locator = "//a[.='" + taskName + "']/..//span[@class='task-timer-time']";
+        Assert.assertTrue(Driver.getDriver().findElement(By.xpath(locator)).getText().contains("02:30"));
+
+    }
+
+    //////////////////////----------AC5-----------/////////////////////////////
+
+    @And("user clicks on plus button next to {string} in Activity Stream Menu")
+    public void userClicksOnPlusButtonNextToTaskInActivityStreamMenu(String menuItem) {
+
+        WebElement tasks = Driver.getDriver().findElement(By.xpath("//a[@title='Tasks']"));
+        actions.moveToElement(tasks).perform();
+        BrowserUtils.waitForClickablility(task.quickTaskPlusIcon, 10).click();
+
+
+    }
+
+    @And("user click on Subtask of +Add button")
+    public void userClickOnSubtaskOfAddButton() {
+        BrowserUtils.waitFor(1);
+        BrowserUtils.scrollToElement(task.subtaskOfAddBtn);
+        BrowserUtils.waitForClickablility(task.subtaskOfAddBtn, 10).click();
+
+    }
+
+    @When("user search related task")
+    public void user_search_related_task() {
+
+        BrowserUtils.waitForClickablility(task.searchFldForSubTask, 10).sendKeys(relatedTask);
+    }
+
+    @And("user click on related task from list")
+    public void userClickOnRelatedTaskFromList() {
+
+        WebElement searchedMainTask=Driver.getDriver().findElement(By.xpath("//div[.='"+relatedTask+"' and @class='finder-box-item-text']"));
+        BrowserUtils.waitForClickablility(searchedMainTask, 10).click();
+
+
+    }
+
+    @And("user click on Select button")
+    public void userClickOnSelectButton() {
+        task.selectSubTaskBtn.click();
+
+    }
+
+    @And("user click on plus button next to related task to see subtasks")
+    public void userClickOnPlusButtonNextToRelatedTaskToSeeSubtasks() {
+
+        BrowserUtils.waitForClickablility(task.findSubTaskPlusIcon(relatedTask),10).click();
+
+    }
+
+    @Then("user should see created subtask under the related task")
+    public void userShouldSeeCreatedSubtaskUnderTheRelatedTask() {
+        BrowserUtils.waitForVisibility(task.findTask(taskName),10);
+        Assert.assertTrue(task.findTask(taskName).isDisplayed());
+
+    }
 
 
 }

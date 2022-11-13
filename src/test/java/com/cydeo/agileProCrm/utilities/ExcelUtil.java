@@ -59,6 +59,19 @@ public class ExcelUtil {
 
     }
 
+    public static void CloseAll(){
+
+        try {
+
+            fileOutputStream.close();
+            workbook.close();
+            fileInputStream.close();
+        } catch (IOException e) {
+            System.out.println("File couldn't close");
+        }
+
+    }
+
 
 
 
