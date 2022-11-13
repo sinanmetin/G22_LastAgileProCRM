@@ -15,11 +15,19 @@ Feature: As a user, I should be able to add news under Company
     And user select year "2022" month "November" day "14" as date
     Then user sees "11/14/2022" in the Date field
 
-  @wipp
+
   Scenario: User can add and remove a picture under the details
     When user click on the Details menu
     And user can add a picture by inserting file path
     Then user can remove a picture
+
+  @wipp
+  Scenario: User can edit a picture under the details
+    When user click on the Details menu
+    And user can add a picture by inserting file path
+    And user click on the editIcon
+    Then user can see edit window
+
 
 
 

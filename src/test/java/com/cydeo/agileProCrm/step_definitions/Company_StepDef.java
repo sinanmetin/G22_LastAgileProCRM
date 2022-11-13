@@ -93,7 +93,7 @@ public class Company_StepDef extends TestBase {
     public void userCanAddAPictureByInsertingFilePath() {
         companyPage.addFileBtn.click();
         companyPage.insertFilePathBtn.click();
-        companyPage.linkField.sendKeys(ConfigurationReader.getProperty("testData2"));
+        companyPage.linkField.sendKeys(ConfigurationReader.getProperty("flower"));
         companyPage.addButton.click();
         Assert.assertTrue(companyPage.addedPicture.isDisplayed());
     }
@@ -105,6 +105,17 @@ public class Company_StepDef extends TestBase {
     }
 
     // -------------- AC4 ------------------
+    @And("user click on the editIcon")
+    public void userClickOnTheEditIcon() {
+        companyPage.editIcon.click();
+    }
+
+    @Then("user can see edit window")
+    public void userCanSeeEditWindow() {
+        Assert.assertTrue(companyPage.editWindow.isDisplayed());
+    }
+
+
 
 
 }

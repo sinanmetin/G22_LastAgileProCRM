@@ -53,8 +53,8 @@ public class CompanyPage {
     @FindBy(xpath = "//span[@class='adm-fileinput-item-panel-btn adm-btn-del']")
     public WebElement removeBtn;
 
-    @FindBy(xpath = "//span[@class='adm-fileinput-item-panel-btn adm-btn-setting']")
-    public WebElement editBtn;
+    //    @FindBy(className = "adm-fileinput-area-input")
+//    public WebElement uploadFileBtn;
 
     @FindBy(xpath = "//div[@class='adm-fileinput-item-preview']")
     public WebElement addedPicture;
@@ -65,8 +65,13 @@ public class CompanyPage {
     @FindBy(id = "bx_file_detail_picturefilePath_0_path")
     public WebElement linkField;
 
-//    @FindBy(className = "adm-fileinput-area-input")
-//    public WebElement uploadFileBtn;
+    @FindBy(xpath = "//span[@class='adm-fileinput-item-panel-btn adm-btn-setting']")
+    public WebElement editIcon;
+
+    @FindBy(id = "popupFM")
+    public WebElement editWindow;
+
+
 
 
 
