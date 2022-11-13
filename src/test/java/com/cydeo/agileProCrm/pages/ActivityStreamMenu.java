@@ -90,6 +90,21 @@ public class ActivityStreamMenu {
        ///
     }
 
+    public WebElement findActivityStreamMenuItem (String linkText){
+
+        String locator="//a[@title='"+linkText+"']";
+
+        if(linkText.equals("Application")||linkText.equals("Workflows")){
+            BrowserUtils.waitForClickablility(moreBtn,10).click();
+            return BrowserUtils.waitForClickablility(By.xpath(locator),10);
+
+        }else {
+           return BrowserUtils.waitForClickablility(By.xpath(locator), 10);
+        }
+
+        ///
+    }
+
 
 
 
