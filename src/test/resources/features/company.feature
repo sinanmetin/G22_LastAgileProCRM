@@ -40,7 +40,7 @@ Feature: As a user, I should be able to add news under Company
   Scenario: Verify that user can select Text, HTML, and Visual Editor
     Then user can select all types
 
-  @AGIL-1789
+  @AGIL-1789 @smoke
   Scenario: Verify that user can send news
     When user enter title and save the news
     Then user can see added news under Company menu

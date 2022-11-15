@@ -4,7 +4,7 @@ Feature:As a user, I should be able to login
   Background:
     Given user is on login page
 
-  @AGIL-1597
+  @AGIL-1597  @smoke
   Scenario Outline:"<user>" should be able to login as
     When "<user>" enter username "<username>"
     And "<user>" enter password "<password>"
@@ -23,7 +23,7 @@ Feature:As a user, I should be able to login
       | Marketing | marketing2@cybertekschool.com  | UserUser |
       | Marketing | marketing87@cybertekschool.com | UserUser |
 
-  @AGIL-1598
+  @AGIL-1598  @smoke
   Scenario Outline: Users should not be able to login with invalid credentials
     When "<user>" enter username "<username>"
     And "<user>" enter password "<password>"
