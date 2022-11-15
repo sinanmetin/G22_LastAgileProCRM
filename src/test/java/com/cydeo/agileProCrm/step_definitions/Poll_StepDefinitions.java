@@ -18,6 +18,9 @@ import org.junit.Assert;
 public class Poll_StepDefinitions extends TestBase {
 
 
+
+
+
     @When("user clicks on the {string} on Activity Stream menu")
     public void user_clicks_on_the_on_activity_stream_menu(String Poll) {
         ASM.activityStreamMenuClick(Poll);
