@@ -27,6 +27,10 @@ public abstract class TestBase {
 
 
 
+    public PollPage pollPage=new PollPage();
+
+
+
     public HomePage homePage=new HomePage();
     public LoginPage loginPage=new LoginPage();
     public TaskPage task=new TaskPage();

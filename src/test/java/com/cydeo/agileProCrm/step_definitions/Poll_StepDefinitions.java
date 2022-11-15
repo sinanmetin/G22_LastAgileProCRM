@@ -18,8 +18,6 @@ import org.junit.Assert;
 public class Poll_StepDefinitions extends TestBase {
 
 
-
-
     @When("user clicks on the {string} on Activity Stream menu")
     public void user_clicks_on_the_on_activity_stream_menu(String Poll) {
         ASM.activityStreamMenuClick(Poll);
@@ -28,29 +26,25 @@ public class Poll_StepDefinitions extends TestBase {
 
     @When("user selects to add more button")
     public void user_selects_to_add_more_button() {
-        PollPage.toAddMoreLink.click();
+        pollPage.toAddMoreLink.click();
     }
 
     @When("user clicks the emplooyes and departments option")
-    public StackTraceElement[] user_clicks_the_emplooyes_and_departments_option() {
+    public void user_clicks_the_emplooyes_and_departments_option() {
 
-        PollPage.EmpandDeptOption.click();
+        pollPage.EmpandDeptOption.click();
 
     }
 
 
     @Then("user should select the multiple contacts from the emplooyes and departments contact lists.")
     public void user_should_select_the_multiple_contacts_from_the_emplooyes_and_departments_contact_lists() {
-     actions.moveToElement(PollPage.hr101).perform();
+        actions.moveToElement(pollPage.hr101).perform();
     }
 
-  //--------------------------------------------------------------------
-  @When("user clicks on the {string} on Activity Stream menu")
-  public void user_clicks_on_the_on_activity_stream_menu(String Poll) {
+    //--------------------------------------------------------------------
 
-      ASM.activityStreamMenuClick(Poll);
 
-  }
     @And("user select to link button")
     public void userSelectToLinkButton() {
 
@@ -69,3 +63,5 @@ public class Poll_StepDefinitions extends TestBase {
     @Then("user should be attach a link on the text field")
     public void userShouldBeAttachALinkOnTheTextField() {
     }
+
+}
