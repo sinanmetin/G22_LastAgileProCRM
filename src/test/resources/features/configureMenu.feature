@@ -20,7 +20,7 @@ Feature: As a user, I should be able to configure menu; so that I can edit the m
       | Helpdesk  | helpdesk84@cybertekschool.com  | UserUser |
       | Marketing | marketing58@cybertekschool.com | UserUser |
 
-  @AGIL-1740
+  @AGIL-1740 @smoke
   Scenario Outline: AC-3 User can reset menu
     Given "<user>" login with "<username>" and "<password>"
     When user click on Configure Menu

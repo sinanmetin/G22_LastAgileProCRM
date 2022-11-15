@@ -6,7 +6,7 @@ Feature: As a user, I should be able to send messages
     Given user is on login page
     Given HR user logged in and on home page
 
-  @AGIL-1722
+  @AGIL-1722 @smoke
   Scenario:AC-1 User should be able to click on upload files icon
   to upload files and pictures from local disks.
     When user click "Message" on Quick Menu
@@ -17,7 +17,7 @@ Feature: As a user, I should be able to send messages
     And user click on Send button
     Then message should be sent with uploaded files
 
-  @AGIL-1723
+  @AGIL-1723 @smoke
   Scenario:AC-2/AC-7 User should be able to add users from selecting multiple contacts
   from Employees and Departments contact lists.
     When user click "Message" on Quick Menu
