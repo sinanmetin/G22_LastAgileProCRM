@@ -4,7 +4,7 @@ Feature: As a user, I should be able to use "Tasks" functionality so that user c
   Background:
     Given user is on login page
 
-  @wip
+
   Scenario: AC1- HR User can create a high priority task in duration of
   the certain deadline by mentioning about a user.
     When HR user logged in and on home page
@@ -19,7 +19,7 @@ Feature: As a user, I should be able to use "Tasks" functionality so that user c
     And user click on Save button
     Then user should see the Task under My tasks List
 
-  @wip
+
   Scenario: AC2- Marketing User can edit the task by declaring
   himself/herself as responsible person.
     When user login "marketing11@cybertekschool.com" "UserUser"
@@ -45,7 +45,7 @@ Feature: As a user, I should be able to use "Tasks" functionality so that user c
     And user click on Save Changes button
     Then user should see timer under the task name
 
-  @wip
+
   Scenario: AC5- Marketing User can create a subtask of the first acceptance
   criteria's task quickly by using plus button, adding tags.
 
