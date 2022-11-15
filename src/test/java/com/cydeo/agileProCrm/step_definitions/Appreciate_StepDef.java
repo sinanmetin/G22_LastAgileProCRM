@@ -26,6 +26,8 @@ public class Appreciate_StepDef extends TestBase {
         BrowserUtils.waitForClickablility(ASM.activityStream,10).click();
         homePage.quickMenuClick(linkText);
     }
+
+
     @When("user click on Upload Files icon")
     public void user_click_on_upload_files_icon()  {
 
