@@ -4,7 +4,7 @@ Feature: As a user, I should be able to logout from the app
   Background:
     Given user is on login page
 
-  @AGIL-1607
+  @AGIL-1607 @smoke
   Scenario Template: AC-1 "<user>" can log out and ends up on the login page.
                      AC-2 "<user>" can not go to the home page again by clicking
                           the step back button after successfully logging out.
@@ -30,7 +30,7 @@ Feature: As a user, I should be able to logout from the app
 #      | Marketing | marketing2@cybertekschool.com  | UserUser |
 #      | Marketing | marketing87@cybertekschool.com | UserUser |
 
-    @AGIL-16078
+    @AGIL-16078 @smoke
     Scenario Template:  AC-3 "<user>" must be logged out if the user closes the open tab
       Given "<user>" login with "<username>" and "<password>"
       And user close the browser

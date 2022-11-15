@@ -47,9 +47,9 @@ public class Task_StepDef extends TestBase {
         findAndClickOnUser(email);
     }
 
-    @And("user select {string} for created by")
-    public void userSelectForCreatedBy(String email) {
-        task.taskEditTogClicker("Created by");
+    @And("user change {string} for {string}")
+    public void userSelectForCreatedBy(String email, String togName) {
+        task.taskEditTogClicker(togName);
         BrowserUtils.waitForClickablility(task.changeBtn, 10).click();
         findAndClickOnUser(email);
 
@@ -227,7 +227,7 @@ public class Task_StepDef extends TestBase {
     @And("user click on related task from list")
     public void userClickOnRelatedTaskFromList() {
 
-        WebElement searchedMainTask=Driver.getDriver().findElement(By.xpath("//div[.='"+relatedTask+"' and @class='finder-box-item-text']"));
+        WebElement searchedMainTask = Driver.getDriver().findElement(By.xpath("//div[.='" + relatedTask + "' and @class='finder-box-item-text']"));
         BrowserUtils.waitForClickablility(searchedMainTask, 10).click();
 
 
@@ -242,19 +242,60 @@ public class Task_StepDef extends TestBase {
     @And("user click on plus button next to related task to see subtasks")
     public void userClickOnPlusButtonNextToRelatedTaskToSeeSubtasks() {
 
-        BrowserUtils.waitForClickablility(task.findSubTaskPlusIcon(relatedTask),10).click();
+        BrowserUtils.waitForClickablility(task.findSubTaskPlusIcon(relatedTask), 10).click();
 
     }
 
     @Then("user should see created subtask under the related task")
     public void userShouldSeeCreatedSubtaskUnderTheRelatedTask() {
-        BrowserUtils.waitForVisibility(task.findTask(taskName),10);
+        BrowserUtils.waitForVisibility(task.findTask(taskName), 10);
         Assert.assertTrue(task.findTask(taskName).isDisplayed());
 
     }
 
+    ////////////----------AC7---------////////////////////////////////////
 
+    @And("user select {string} as a {string}")
+    public void userSelectAsA(String email, String togName) {
+
+        task.taskEditTogClicker(togName);
+        BrowserUtils.waitForClickablility(task.participantsAdd, 10).click();
+        findAndClickOnUser(email);
+        message.empAndDeptListCloseBtn.click();
+
+    }
+
+    @And("user select {string} as an {string}")
+    public void userSelectAsAn(String email, String togName) {
+
+        task.taskEditTogClicker(togName);
+        BrowserUtils.waitForClickablility(task.observersAdd, 10).click();
+        findAndClickOnUser(email);
+        message.empAndDeptListCloseBtn.click();
+
+    }
+
+    @Then("user should see {string} as {string}")
+    public void userShouldSeeAs(String email, String togName) {
+
+
+        Driver.getDriver().switchTo().frame(task.sidePanelIframe);
+
+
+        String locator = "//div[contains(.,'" + togName + "') and @class='task-detail-sidebar-info-title task-detail-sidebar-info-title-line']/following-sibling::div[1]";
+        BrowserUtils.scrollToElement(Driver.getDriver().findElement(By.xpath(locator)));
+        Assert.assertEquals(email, Driver.getDriver().findElement(By.xpath(locator)).getText());
+        Driver.getDriver().switchTo().defaultContent();
+
+
+    }
 }
+
+
+
+
+
+
 
 
 

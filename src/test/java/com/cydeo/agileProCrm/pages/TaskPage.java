@@ -64,14 +64,13 @@ public class TaskPage{
     public WebElement sidePanelClose;
 
 
-    @FindBy (xpath =   "//span[@data-bx-id='task-edit-toggler' and .='Created by']" )
-    public WebElement createdBy;
 
-    @FindBy (xpath =   "//span[@data-bx-id='task-edit-toggler' and .='Participants']" )
-    public WebElement participants;
 
-    @FindBy (xpath =   "//span[@data-bx-id='task-edit-toggler' and .='Observers']" )
-    public WebElement observers;
+    @FindBy (xpath =   "(//a[@class='js-id-tdp-mem-sel-is-open-form task-form-field-when-empty task-form-field-link add'])[1]" )
+    public WebElement participantsAdd;
+
+    @FindBy (xpath =   "(//a[@class='js-id-tdp-mem-sel-is-open-form task-form-field-when-empty task-form-field-link add'])[2]" )
+    public WebElement observersAdd;
 
     @FindBy(xpath = "//a[@class='task-view-button edit ui-btn ui-btn-link']")
     public WebElement editBtn;
@@ -131,6 +130,7 @@ public class TaskPage{
 
     }
 
+
     public WebElement userFinder(String email){
         String locator="//div[.='"+email+"' and @class='bx-finder-company-department-employee-name']";
         return Driver.getDriver().findElement(By.xpath(locator));
@@ -155,11 +155,6 @@ public class TaskPage{
         String locator="//a[.='"+taskName+"']//preceding-sibling::span[1]";
         return Driver.getDriver().findElement(By.xpath(locator));
     }
-
-
-
-
-
 
 
 }
