@@ -65,4 +65,25 @@ public class ServicesPage {
 
    @FindBy(xpath = "//span[.='Print']")
     public WebElement printBtn;
+
+   @FindBy(xpath = "//a[.='date added']")
+    public WebElement dateAddedBtn;
+
+   @FindBy(xpath = "(//div[@class='idea-owner'])[1]")
+    public WebElement firstDateBtn;
+
+   @FindBy(xpath = "(//div[@class='idea-owner'])[2]")
+   public WebElement secondDateBtn;
+
+   @FindBy(xpath = "//a[.='rating']")
+    public WebElement ratingBtn;
+
+   @FindBy(xpath = "//span[.=' 222.0673']")
+    public WebElement firstRating;
+
+   @FindBy(xpath = "(//span[.=' 116.8735'])[1]")
+    public WebElement secondRating;
+
+
+
 }
