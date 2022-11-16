@@ -33,14 +33,17 @@ public class Appreciate_Page {
     @FindBy(xpath = "(//span[@class='insert-btn-text'])[2]")
     public WebElement insertInText2;
 
-    @FindBy(xpath = "//iframe[@class='bx-editor-iframe']")
-    public WebElement ifram;
+    @FindBy(xpath = "//iframe[@style='width: 100%; height: 100%;']")
+    public WebElement iframe;
 
     @FindBy(xpath = "//img[@style='max-width:400px;max-height:400px;']")
-    public WebElement File1Confirm;
+    public WebElement ImageConfirm;
 
     @FindBy(xpath = "//span[contains(@style,'color: #2067B0; border-bottom:')]")
-    public WebElement File2Confirm;
+    public WebElement FileConfirm;
+
+    @FindBy(xpath = "(//span[contains(@style,'color: #2067B0; border-bottom:')])[2]")
+    public WebElement DocumentConfirm;
 
     @FindBy(xpath = "//span[@class='wd-fa-add-file-light-title-text diskuf-selector-link']")
     public WebElement selectDocumentFromBitrix24;
@@ -73,6 +76,82 @@ public class Appreciate_Page {
 
     @FindBy(xpath = "//span[.='Cancel']")
     public WebElement cancelBtn;
+
+    @FindBy(id = "bx-destination-tag")
+    public WebElement addMoreBtn;
+
+    @FindBy(xpath = "//a[@class='bx-finder-box-tab bx-lm-tab-department']")
+    public WebElement EmployeesAndDepartmentsBtn;
+
+    @FindBy(xpath = "(//div[.='HR'])[3]")
+    public WebElement HRBtn;
+
+    @FindBy(xpath = "//div[.='helpdesk9@cybertekschool.com']")
+    public WebElement helpdesk9;
+
+    @FindBy(xpath = "//a[@class='bx-finder-box-tab bx-lm-tab-last']")
+    public WebElement Recent;
+
+    @FindBy(xpath = "//span[@style='top: 12px; right: 15px;']")
+    public WebElement xBtn;
+
+    @FindBy(xpath = "//span[@class='feed-add-post-destination feed-add-post-destination-users']")
+    public WebElement recipient;
+
+    @FindBy(xpath = "//span[@title='Add mention']")
+    public WebElement addMentionBtn;
+
+    @FindBy(xpath = "//span[@class='bxhtmled-metion']")
+    public WebElement contentHr11;
+
+    @FindBy(xpath = "//span[@title='Link']")
+    public WebElement LinkIcon;
+
+    @FindBy(xpath = "//input[@placeholder='Link text']")
+    public WebElement LinkText;
+
+    @FindBy(xpath = "//input[@placeholder='Link URL']")
+    public WebElement LinkLink;
+
+    @FindBy(xpath = "//input[@value='Save']")
+    public WebElement LinkSaveBtn;
+
+    @FindBy(xpath = "//a[@href='https://www.youtube.com/watch?v=8An2SxNFvmU']")
+    public WebElement DoNothingAdded;
+
+    @FindBy(xpath = "//span[@title='Quote text']")
+    public WebElement QuoteTextIcon;
+
+    @FindBy(xpath = "//blockquote[@class='bxhtmled-quote']")
+    public WebElement WriteCelebration;
+
+    @FindBy(xpath = "//span[@title='Visual editor']")
+    public WebElement VisualEditorIcon;
+
+    @FindBy(xpath = "//div[@class='bxhtmled-toolbar']")
+    public WebElement EditorTextBar;
+
+    @FindBy(id = "lhe_button_title_blogPostForm")
+    public WebElement TopicIcon;
+
+    @FindBy(id = "POST_TITLE")
+    public WebElement TopicTextBox;
+
+    @FindBy(xpath = "//span[@class='feed-add-grat-box feed-add-grat-medal-thumbsup']")
+    public WebElement existingEmoji;
+
+    @FindBy(id = "popup-window-content-BXSocNetGratSelector")
+    public WebElement AllEmojis;
+
+    @FindBy(xpath = "//span[@title='Add tag']")
+    public WebElement addTagIcon;
+
+    @FindBy(xpath = "//input[@id='TAGS_blogPostForm67abSn']")
+    public WebElement TagSpace;
+
+    @FindBy(id = "post-tags-container-blogPostForm")
+    public WebElement TagBox;
+
 
 
 
