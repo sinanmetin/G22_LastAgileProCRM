@@ -53,13 +53,29 @@ Feature:As a user, I should be able to use "Services" functionality so that I ca
         Then user clicks unlike box
 
 
-      Scenario: Marketing Users can dislike the idea.
+       Scenario: Marketing Users can dislike the idea.
         Given "marketing1@cybertekschool.com" users logged in and on home page
         When user clicks on "Services" on Activity Stream Menu
         And user clicks idea button
         Then user clicks like box
+  @wip
+        Scenario: Marketing Users can sort the ideas by date added.
+          Given "marketing1@cybertekschool.com" users logged in and on home page
+          When user clicks on "Services" on Activity Stream Menu
+          And user clicks idea button
+          And user clicks date added button
+          Then user sees sorted daten
+
 
         Scenario: Marketing Users can sort the ideas by date added.
+          Given "marketing1@cybertekschool.com" users logged in and on home page
+          When user clicks on "Services" on Activity Stream Menu
+          And user clicks idea button
+          And user clicks rating button
+          Then user sees sorted rating
+
+
+
 
 
         Scenario:  HR Users can print the lists by clicking the "Print"

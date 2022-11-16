@@ -8,9 +8,15 @@ import com.cydeo.agileProCrm.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.it.Data;
+import org.apache.hc.core5.util.Asserts;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Services_StepDefinitions extends TestBase {
 
@@ -27,22 +33,26 @@ public class Services_StepDefinitions extends TestBase {
     public void user_enters_meeting_rooms_page() {
         Assert.assertTrue(Driver.getDriver().getTitle().contains("Meeting Rooms"));
     }
+
     @When("user clicks on the Meeting Room Booking table view")
     public void user_clicks_on_the_meeting_room_booking_table_view() {
         servicesPage.meetingBtn.click();
 
     }
+
     @Then("Event Calender displays")
     public void event_calender_displays() {
         Assert.assertTrue(Driver.getDriver().getTitle().contains("Meeting Room"));
     }
+
     @When("user clicks Book meeting room")
     public void user_clicks_book_meeting_room() {
-    servicesPage.bookRoomBtn.click();
+        servicesPage.bookRoomBtn.click();
     }
+
     @Then("New Event page is opened")
     public void new_event_page_is_opened() {
-    Assert.assertTrue(servicesPage.newEvent.isDisplayed());
+        Assert.assertTrue(servicesPage.newEvent.isDisplayed());
     }
 
     @When("user uncheck box the East Meeting Room")
@@ -53,17 +63,20 @@ public class Services_StepDefinitions extends TestBase {
 
     @When("user clicks idea button")
     public void user_clicks_idea_button() {
-    servicesPage.ideaBtn.click();
+        servicesPage.ideaBtn.click();
     }
+
     @When("user clicks New Idea button")
     public void user_clicks_new_idea_button() {
-    servicesPage.newIdeaBtn.click();
+        servicesPage.newIdeaBtn.click();
 
     }
+
     @When("user write a title as MY_TEST_IDEA")
     public void user_write_a_title_as_my_test_idea() {
-    servicesPage.title.sendKeys("MY_TEST_IDEA");
+        servicesPage.title.sendKeys("MY_TEST_IDEA");
     }
+
     @When("user write a description as MY_TEST_DESCRIPTION_OF_IDEA")
     public void user_write_a_description_as_my_test_description_of_idea() {
         Driver.getDriver().switchTo().frame(servicesPage.iframe);
@@ -71,19 +84,22 @@ public class Services_StepDefinitions extends TestBase {
         Driver.getDriver().switchTo().defaultContent();
 
     }
+
     @When("user dropdomn from Catogory module")
     public void user_dropdomn_from_catogory_module() {
-        Select select= new Select(servicesPage.dropDown);
+        Select select = new Select(servicesPage.dropDown);
     }
+
     @When("user selects Holiday")
     public void user_selects_holiday() {
-        Select select= new Select(servicesPage.dropDown);
+        Select select = new Select(servicesPage.dropDown);
         select.selectByValue("OUR_EVENTS");
 
     }
+
     @Then("user clicks Suggest new idea button")
     public void user_clicks_suggest_new_idea_button() {
-    servicesPage.suggestBtn.click();
+        servicesPage.suggestBtn.click();
 
 
         Assert.assertTrue(servicesPage.titleIdea.isDisplayed());
@@ -92,23 +108,26 @@ public class Services_StepDefinitions extends TestBase {
     @When("user clicks unlike box")
     public void user_clicks_unlike_box() {
 
-       servicesPage.unlikeBox.click();
+        servicesPage.unlikeBox.click();
 
     }
+
     @When("user clicks like box")
     public void user_clicks_like_box() {
-       servicesPage.likeButton.click();
+        servicesPage.likeButton.click();
     }
 
     @When("user clicks Themes link")
     public void user_clicks_themes_link() {
-     servicesPage.themesBtn.click();
+        servicesPage.themesBtn.click();
     }
+
     @When("user select one item from the list")
     public void user_select_one_item_from_the_list() {
         servicesPage.photoBtn.click();
 
     }
+
     @Then("user clicks print button")
     public void user_clicks_print_button() {
         servicesPage.printBtn.click();
@@ -125,4 +144,61 @@ public class Services_StepDefinitions extends TestBase {
         loginPage.inputPassword.sendKeys("UserUser");
         loginPage.loginBtn.click();
     }
+
+    @When("user clicks date added button")
+    public void user_clicks_date_added_button() {
+        servicesPage.dateAddedBtn.click();
+    }
+    @Then("user sees sorted daten")
+        public void user_sees_sorted_daten() {
+        SimpleDateFormat sdFormat = new SimpleDateFormat("MM-dd-yyyy");
+    
+
+        String d2 = servicesPage.firstDateBtn.getText();
+        String d1 = servicesPage.secondDateBtn.getText();
+        System.out.println(d1);
+        System.out.println("d2 = " + d2);
+        if (d1.compareTo(d2) > 0) {
+            System.out.println("Date 1 occurs after Date 2");
+            Assert.assertTrue(true);
+        } else if (d1.compareTo(d2) < 0) {
+            System.out.println("Date 1 occurs before Date 2");
+            Assert.assertTrue(false);
+        } else if (d1.compareTo(d2) == 0) {
+            System.out.println("Both dates are aqual");
+            Assert.assertTrue(true);
+        }
+
+    }
+    @When("user clicks rating button")
+    public void user_clicks_rating_button() {
+       servicesPage.ratingBtn.click();
+    }
+    @Then("user sees sorted rating")
+    public void user_sees_sorted_rating() {
+        String r1=servicesPage.firstRating.getText();
+        String r2=servicesPage.secondRating.getText();
+
+
+
+
+
+
+        }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
