@@ -4,7 +4,7 @@ Feature: As a user, I should be able to create a poll by clicking on Poll tab un
 
   Background:
     Given user is on login page
-    Given user logged in and on home page
+#    Given user logged in and on home page
 
   Scenario: AC-1 User should be able to add users by selecting multiple contacts from the Employees and Departments contact lists.
         When user clicks on the "Poll" on Activity Stream menu
