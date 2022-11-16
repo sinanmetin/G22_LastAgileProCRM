@@ -79,7 +79,7 @@ public class ActivityStreamMenu {
 
         String locator="//a[@title='"+linkText+"']";
 
-        if(linkText.equals("Application")||linkText.equals("Workflows")){
+        if(linkText.equals("Applications")||linkText.equals("Workflows")){
             BrowserUtils.waitForClickablility(moreBtn,10).click();
             BrowserUtils.waitForClickablility(By.xpath(locator),10).click();
 
@@ -94,7 +94,7 @@ public class ActivityStreamMenu {
 
         String locator="//a[@title='"+linkText+"']";
 
-        if(linkText.equals("Application")||linkText.equals("Workflows")){
+        if(linkText.equals("Applications")||linkText.equals("Workflows")){
             BrowserUtils.waitForClickablility(moreBtn,10).click();
             return BrowserUtils.waitForClickablility(By.xpath(locator),10);
 
