@@ -3,6 +3,7 @@ package com.cydeo.agileProCrm.step_definitions;
 import com.cydeo.agileProCrm.base.TestBase;
 import com.cydeo.agileProCrm.pages.PollPage;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
@@ -16,7 +17,7 @@ import org.junit.Assert;
 public class Poll_StepDefinitions extends TestBase {
 
 
-
+//---------------------AC-1-------------------------------------------
 
     @When("user clicks on the {string} on Activity Stream menu")
     public void user_clicks_on_the_on_activity_stream_menu(String Poll) {
@@ -42,7 +43,7 @@ public class Poll_StepDefinitions extends TestBase {
         actions.moveToElement(pollPage.hr101).perform();
     }
 
-    //--------------------------------------------------------------------
+    //------------------------AC-2--------------------------------------------
 
 
     @And("user select to link button")
@@ -70,7 +71,7 @@ public class Poll_StepDefinitions extends TestBase {
     public void userShouldBeAttachALinkOnTheTextField() {
 
     }
-//-----------------------------------------------------------------------
+//--------------------------------AC-4-6-7---------------------------------------
      @And("user writes question and more answers  under the topic field")
       public void userWritesQuestionAndMoreAnswersUnderTheTopicField() {
       }
@@ -95,19 +96,18 @@ public class Poll_StepDefinitions extends TestBase {
     @And("user add another question and answers")
     public void userAddAnotherQuestionAndAnswers() {
 
-
     }
 
 
     @Then("user should add questions and multiple answers")
     public void userShouldAddQuestionsAndMultipleAnswers() {
-
     }
 
     @Then("attendees should select multiple choice")
     public void attendeesShouldSelectMultipleChoice() {
     }
 
+    //------------------------------AC-3---------------------------------------------------
     @And("user click on the mention icon")
     public void userClickOnTheMentionIcon() {
         wait.until(ExpectedConditions.visibilityOf(pollPage.clickmention));
@@ -122,5 +122,19 @@ public class Poll_StepDefinitions extends TestBase {
 
     @Then("user should see added mention under the topic")
     public void userShouldSeeAddedMentionUnderTheTopic() {
+    }
+
+    @And("user click delete button")
+    public void userClickDeleteButton() {
+
+    }
+
+    @Then("user should see deleted questions and multiple answers")
+    public void userShouldSeeDeletedQuestionsAndMultipleAnswers() {
+
+    }
+
+    @Given("user logged in and on home page")
+    public void userLoggedInAndOnHomePage() {
     }
 }

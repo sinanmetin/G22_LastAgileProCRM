@@ -45,6 +45,13 @@ public class PollPage {
     @FindBy(id= "bx-b-quote-blogPostForm")
     public WebElement clickmention;
 
+    @FindBy(id="feed-post-more-1042")
+    public WebElement clickMoreBtn;
+
+    @FindBy(xpath = "//span[@class='menu-popup-item-text']")
+    public WebElement clickDeleteBtn;
+
+
 }
 
 

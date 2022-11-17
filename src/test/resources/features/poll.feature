@@ -1,11 +1,12 @@
 
 
 @wip
+
 Feature: As a user, I should be able to create a poll by clicking on Poll tab under Activity Stream.
 
   Background:
     Given user is on login page
-#    Given user logged in and on home page
+    Given user logged in and on home page
 
   Scenario: AC-1 User should be able to add users by selecting multiple contacts from the Employees and Departments contact lists.
         When user login "hr101@cybertekschool.com" "UserUser"
@@ -44,7 +45,15 @@ Feature: As a user, I should be able to create a poll by clicking on Poll tab un
         Then user should add questions and multiple answers
         Then attendees should select multiple choice
 
-    #Scenario: AC-5 User should be able to delete questions and multiple answers.
+    Scenario: AC-5 User should be able to delete questions and multiple answers.
+       When user login "hr101@cybertekschool.com" "UserUser"
+       And user clicks on the "Poll" on Activity Stream menu
+       And user writes question and more answers  under the topic field
+       And user clicks "Allow multiple choice" checkbox for answers
+       And user click on Send button
+       And user clicks on More button
+       And user click delete button
+       Then user should see deleted questions and multiple answers
 
 
 
