@@ -5,10 +5,8 @@ import com.cydeo.agileProCrm.pages.PollPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import com.cydeo.agileProCrm.utilities.BrowserUtils;
-import com.cydeo.agileProCrm.utilities.ConfigurationReader;
 import com.cydeo.agileProCrm.utilities.Driver;
 import org.junit.Assert;
 
@@ -16,7 +14,6 @@ import org.junit.Assert;
 
 
 public class Poll_StepDefinitions extends TestBase {
-
 
 
 
@@ -50,21 +47,80 @@ public class Poll_StepDefinitions extends TestBase {
 
     @And("user select to link button")
     public void userSelectToLinkButton() {
+        wait.until(ExpectedConditions.visibilityOf(ASM.activityStream));
+        ASM.activityStream.isSelected();
+
 
     }
 
     @And("user enter the link on link field")
     public void userEnterTheLinkOnLinkField() {
 
+
+
     }
 
     @And("user click on the send button")
     public void userClickOnTheSendButton() {
-
+        wait.until(ExpectedConditions.visibilityOf(pollPage.sendBtn));
+        pollPage.sendBtn.click();
     }
 
     @Then("user should be attach a link on the text field")
     public void userShouldBeAttachALinkOnTheTextField() {
+
+    }
+//-----------------------------------------------------------------------
+     @And("user writes question and more answers  under the topic field")
+      public void userWritesQuestionAndMoreAnswersUnderTheTopicField() {
+      }
+
+    @And("user clicks {string} checkbox for answers")
+    public void userClicksCheckboxForAnswers(String arg0) {
+
+
+        pollPage.AllMultChoBox.click();
+
     }
 
+    @And("user selects add question button")
+    public void userSelectsAddQuestionButton() {
+        wait.until(ExpectedConditions.visibilityOf(ASM.activityStream));
+        ASM.activityStream.isSelected();
+        pollPage.AddQuestionBtn.isSelected();
+
+
+    }
+
+    @And("user add another question and answers")
+    public void userAddAnotherQuestionAndAnswers() {
+
+
+    }
+
+
+    @Then("user should add questions and multiple answers")
+    public void userShouldAddQuestionsAndMultipleAnswers() {
+
+    }
+
+    @Then("attendees should select multiple choice")
+    public void attendeesShouldSelectMultipleChoice() {
+    }
+
+    @And("user click on the mention icon")
+    public void userClickOnTheMentionIcon() {
+        wait.until(ExpectedConditions.visibilityOf(pollPage.clickmention));
+        pollPage.clickmention.click();
+
+    }
+
+    @And("user add a mention")
+    public void userAddAMention() {
+
+    }
+
+    @Then("user should see added mention under the topic")
+    public void userShouldSeeAddedMentionUnderTheTopic() {
+    }
 }
