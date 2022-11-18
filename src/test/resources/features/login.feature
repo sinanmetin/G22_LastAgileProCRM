@@ -1,4 +1,4 @@
-@AGIL-1601
+@AGIL-1601 @login
 Feature:As a user, I should be able to login
 
   Background:

@@ -6,7 +6,7 @@ Feature: As a user, I should be able to send messages
     Given user is on login page
     Given HR user logged in and on home page
 
-  @AGIL-1722 @smoke
+  @AGIL-172
   Scenario:AC-1 User should be able to click on upload files icon
   to upload files and pictures from local disks.
     When user click "Message" on Quick Menu
