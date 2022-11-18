@@ -21,7 +21,6 @@ public class Company_StepDef extends TestBase {
 
     CompanyPage companyPage = new CompanyPage();
 
-    String date = faker.date().toString();
 
     String newsTitle = faker.chuckNorris().toString();
 
