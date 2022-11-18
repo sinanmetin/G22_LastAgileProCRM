@@ -19,11 +19,6 @@ public class Poll_StepDefinitions extends TestBase {
 
 //---------------------AC-1-------------------------------------------
 
-    @When("user clicks on the {string} on Activity Stream menu")
-    public void user_clicks_on_the_on_activity_stream_menu(String Poll) {
-        ASM.activityStreamMenuClick(Poll);
-
-    }
 
     @When("user selects to add more button")
     public void user_selects_to_add_more_button() {
@@ -136,5 +131,12 @@ public class Poll_StepDefinitions extends TestBase {
 
     @Given("user logged in and on home page")
     public void userLoggedInAndOnHomePage() {
+    }
+
+    @And("user click on {string} on Quick menu")
+    public void userClickOnOnQuickMenu(String arg0) {
+        wait.until(ExpectedConditions.visibilityOf(ASM.activityStream));
+        ASM.activityStream.click();
+
     }
 }

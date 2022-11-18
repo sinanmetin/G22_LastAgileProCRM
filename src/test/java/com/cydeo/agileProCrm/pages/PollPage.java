@@ -1,11 +1,9 @@
 package com.cydeo.agileProCrm.pages;
 
 import com.cydeo.agileProCrm.utilities.Driver;
-import org.bouncycastle.jce.exception.ExtCertPathBuilderException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.w3c.dom.html.HTMLInputElement;
 
 public class PollPage {
 
@@ -14,8 +12,9 @@ public class PollPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "//span[.='Poll' ]/span")
+    @FindBy(xpath = "//span[.='Poll']/span")
     public WebElement Poll;
+
 
     @FindBy(id = "feed-add-post-destination-input")
     public WebElement toAddMoreLink;
