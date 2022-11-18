@@ -7,11 +7,18 @@ import com.cydeo.agileProCrm.utilities.ExcelUtil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.apache.commons.math3.optim.univariate.BrentOptimizer;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Task_StepDef extends TestBase {
 
@@ -25,11 +32,13 @@ public class Task_StepDef extends TestBase {
     @When("user click on New Task button")
     public void user_click_on_new_task_button() {
         BrowserUtils.waitForClickablility(task.newTaskBtn, 10).click();
+        Driver.getDriver().switchTo().frame(task.sidePanelIframe);
+
     }
 
     @When("user enter task name and description")
     public void user_enter_task_name_and_description() {
-        Driver.getDriver().switchTo().frame(task.sidePanelIframe);
+
         task.taskNameFld.sendKeys(taskName);
         Driver.getDriver().switchTo().frame(task.textEditorIframe);
         task.taskDescFld.sendKeys(taskDesc);
@@ -206,7 +215,7 @@ public class Task_StepDef extends TestBase {
         WebElement tasks = Driver.getDriver().findElement(By.xpath("//a[@title='Tasks']"));
         actions.moveToElement(tasks).perform();
         BrowserUtils.waitForClickablility(task.quickTaskPlusIcon, 10).click();
-
+        Driver.getDriver().switchTo().frame(task.sidePanelIframe);
 
     }
 
@@ -286,10 +295,204 @@ public class Task_StepDef extends TestBase {
         BrowserUtils.scrollToElement(Driver.getDriver().findElement(By.xpath(locator)));
         Assert.assertEquals(email, Driver.getDriver().findElement(By.xpath(locator)).getText());
         Driver.getDriver().switchTo().defaultContent();
+    }
+
+    ///////----AC8------//////////////////////////////////
+
+
+    @And("user click add Checklist button")
+    public void userClickAddChecklistButton() {
+
+        Driver.getDriver().switchTo().frame(task.sidePanelIframe);
+        BrowserUtils.waitForClickablility(task.checklistAddBtn, 10).click();
+
+    }
+
+    @And("user add {string} as checklist items")
+    public void userAddAsChecklistItems(String item) {
+
+        for (int i = 1; i < 4; i++) {
+
+            String locator = "(//input[@placeholder='Things to do'])[" + i + "]";
+            WebElement textFld = Driver.getDriver().findElement(By.xpath(locator));
+            BrowserUtils.waitForClickablility(textFld, 10).sendKeys(item + i + " " + Keys.ENTER);
+
+        }
+        Driver.getDriver().switchTo().defaultContent();
+        task.sidePanelClose.click();
+    }
+
+    @Then("user should see created checklist items under the related task")
+    public void userShouldSeeCreatedChecklistItemsUnderTheRelatedTask() {
+        Driver.getDriver().switchTo().frame(task.sidePanelIframe);
+        List<WebElement> checklistItems = Driver.getDriver().findElements(By.xpath("//span[@class='js-id-checklist-is-i-title ']"));
+        Assert.assertEquals(3, checklistItems.size());
+    }
+
+
+    ///////////////--------AC9---------////////////////
+
+    @And("user open last created task")
+    public void userOpenLastCreatedTask() {
+        Driver.getDriver().navigate().refresh();
+        BrowserUtils.waitForClickablility(task.findTask(taskName), 10).click();
+
+    }
+
+    @And("user click on Dependent tasks +Add button")
+    public void userClickOnDependentTasksAddButton() {
+
+
+        for (int i = 0; i < 6; i++) {
+
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+        }
+        BrowserUtils.waitFor(1);
+        BrowserUtils.waitForVisibility(task.dependentTasksAddBtn, 10).click();
+
+    }
+
+    @And("user search related Dependent task")
+    public void userSearchRelatedDependentTask() {
+
+        BrowserUtils.waitForVisibility(task.searchFldForDependentTask, 10).sendKeys("Task");
 
 
     }
+
+    @And("user click on dependent task from list")
+    public void userClickOnDependentTaskFromList() {
+
+        WebElement searchedMainTask = Driver.getDriver().findElement(By.xpath("//div[@id='dependson_search']//div[contains(.,'Task ')]"));
+        BrowserUtils.waitForClickablility(searchedMainTask, 10).click();
+
+    }
+
+    @Then("user should see related task as Dependent task")
+    public void userShouldSeeRelatedTaskAsDependentTask() {
+
+        Driver.getDriver().switchTo().frame(task.sidePanelIframe);
+
+        Assert.assertTrue(task.assertDependTask.isDisplayed());
+
+    }
+
+
+    //////////////////------AC10-------////////////////////////
+
+    @And("user click on TASK TEMPLATES")
+    public void userClickOnTASKTEMPLATES() {
+        BrowserUtils.waitForClickablility(task.taskTemplatesButton, 10).click();
+
+    }
+
+    @And("user click on All templates")
+    public void userClickOnAllTemplates() {
+        BrowserUtils.waitForClickablility(task.allTemplatesBtn, 10).click();
+    }
+
+    @And("user click on +ADD button")
+    public void userClickOnADDButton() {
+
+        BrowserUtils.waitForClickablility(task.taskTemplatesAddButton, 10).click();
+
+    }
+
+    @Then("user should landed {string} page")
+    public void userShouldLandedPage(String pageHeader) {
+
+        Assert.assertEquals(pageHeader, task.newTaskTemplatePageTitle.getText());
+
+
+    }
+
+    @And("user enter task template name and description")
+    public void userEnterTaskTemplateNameAndDescription() {
+
+        task.taskTemplateNameInput.sendKeys(taskName);
+        Driver.getDriver().switchTo().frame(task.textEditorIframe);
+        task.taskDescFld.sendKeys(taskDesc);
+        Driver.getDriver().switchTo().parentFrame();
+
+    }
+
+
+    @And("user specify deadline options")
+    public void userSpecifyDeadlineOptions() {
+
+        for (int i = 0; i < 4; i++) {
+
+            actions.sendKeys(Keys.PAGE_DOWN).perform();
+        }
+
+        BrowserUtils.waitForClickablility(task.deadlineOptionsTog, 10).click();
+        BrowserUtils.waitForClickablility(task.respAllowChgDeadline, 10).click();
+        BrowserUtils.waitForClickablility(task.approveTaskComp, 10).click();
+
+
+    }
+
+    @Then("user click on Create Task Template button")
+    public void userClickOnCreateTaskTemplateButton() {
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        BrowserUtils.waitForClickablility(task.createTaskTempBtn, 10).click();
+
+    }
+
+    @Then("user should see Task under Task templates list")
+    public void userShouldSeeTaskUnderTaskTemplatesList() {
+        Assert.assertTrue(task.findTask(taskName).isDisplayed());
+
+    }
+
+    @And("user select created Task")
+    public void userSelectCreatedTask() {
+
+        BrowserUtils.waitForClickablility(task.findTaskCheckBox(taskName), 10).click();
+    }
+
+    @And("user Select Action Delete")
+    public void userSelectActionDelete() {
+
+        BrowserUtils.scrollToElement(task.selectAction);
+        task.selectAction.click();
+        BrowserUtils.waitForClickablility(task.selActDelete, 10).click();
+    }
+
+    @And("user click on APPLY")
+    public void userClickOnAPPLY() {
+        BrowserUtils.waitForClickablility(task.applyBtn, 10).click();
+
+    }
+
+    @And("user confirm action")
+    public void userConfirmAction() {
+        BrowserUtils.waitForClickablility(task.continueBtn, 10).click();
+
+    }
+
+    @Then("user shouldn't see that task under My tasks list")
+    public void userShouldnTSeeThatTaskUnderMyTasksList() {
+
+        String locator = "//a[.='" + taskName + "']";
+        Driver.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        BrowserUtils.verifyElementNotDisplayed(By.xpath(locator));
+
+
+    }
+
+
+    @And("user enter task name and description on quick menu")
+    public void userEnterTaskNameAndDescriptionOnQuickMenu() {
+
+        task.taskNameFld.sendKeys(taskName);
+        Driver.getDriver().switchTo().frame(task.textEditorIframeQuickMenu);
+        task.taskDescFld.sendKeys(taskDesc);
+        Driver.getDriver().switchTo().parentFrame();
+
+    }
 }
+
 
 
 
