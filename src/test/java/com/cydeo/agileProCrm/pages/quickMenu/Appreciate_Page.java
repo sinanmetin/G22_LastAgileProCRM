@@ -101,6 +101,9 @@ public class Appreciate_Page {
     @FindBy(xpath = "//span[@title='Add mention']")
     public WebElement addMentionBtn;
 
+    @FindBy(xpath = "//a[@class='bx-finder-box-tab bx-lm-tab-department']")
+    public WebElement EmployeeDepartments;
+
     @FindBy(xpath = "//span[@class='bxhtmled-metion']")
     public WebElement contentHr11;
 
@@ -149,8 +152,11 @@ public class Appreciate_Page {
     @FindBy(xpath = "//input[@id='TAGS_blogPostForm67abSn']")
     public WebElement TagSpace;
 
-    @FindBy(id = "post-tags-container-blogPostForm")
-    public WebElement TagBox;
+    @FindBy(xpath = "//span[@class='feed-add-post-tags']")
+    public WebElement wip1;
+
+    @FindBy(xpath = "(//span[@class='feed-add-post-tags'])[2]")
+    public WebElement wip2;
 
 
 
