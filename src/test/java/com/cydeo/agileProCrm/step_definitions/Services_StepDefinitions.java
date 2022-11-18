@@ -151,9 +151,11 @@ public class Services_StepDefinitions extends TestBase {
     }
     @Then("user sees sorted daten")
         public void user_sees_sorted_daten() {
+
        
         String d1 = servicesPage.firstDateBtn.getText();
         String d2 = servicesPage.secondDateBtn.getText();
+
         System.out.println(d1);
         System.out.println("d2 = " + d2);
         if (d1.compareTo(d2) > 0) {

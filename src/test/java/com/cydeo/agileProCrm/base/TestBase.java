@@ -16,31 +16,23 @@ public abstract class TestBase {
 
     public WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
 
-    public Faker faker=new Faker();
+    public Faker faker = new Faker();
 
-    public Actions actions=new Actions(Driver.getDriver());
+    public Actions actions = new Actions(Driver.getDriver());
 
-    public MessageQM message=new MessageQM();
-    public ActivityStreamMenu ASM=new ActivityStreamMenu();
+    public MessageQM message = new MessageQM();
+    public ActivityStreamMenu ASM = new ActivityStreamMenu();
 
-    public ServicesPage servicesPage= new ServicesPage();
+    public ServicesPage servicesPage = new ServicesPage();
 
+    public ApplicationsPage applicationsPage = new ApplicationsPage();
 
-
-    public PollPage pollPage=new PollPage();
-
-
-
-    public HomePage homePage=new HomePage();
-    public LoginPage loginPage=new LoginPage();
-    public TaskPage task=new TaskPage();
+    public PollPage pollPage = new PollPage();
 
 
-
-
-
-
-
+    public HomePage homePage = new HomePage();
+    public LoginPage loginPage = new LoginPage();
+    public TaskPage task = new TaskPage();
 
 
 }

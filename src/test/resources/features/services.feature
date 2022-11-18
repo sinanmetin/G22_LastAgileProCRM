@@ -59,7 +59,9 @@ Feature:As a user, I should be able to use "Services" functionality so that I ca
         And user clicks idea button
         Then user clicks like box
 
- @wip @AGIL-1801
+
+@AGIL-1801
+
         Scenario: Marketing Users can sort the ideas by date added.
           Given "marketing1@cybertekschool.com" users logged in and on home page
           When user clicks on "Services" on Activity Stream Menu

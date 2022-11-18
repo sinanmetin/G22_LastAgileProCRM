@@ -22,7 +22,7 @@ import org.junit.runner.RunWith;
         //"@wip and @googleSearch"
         //"@student or @admin
         //"@Regression and not @student"
-        publish = true //create a link to share test report
+        publish = false //create a link to share test report
 
 )
 public class CukesRunner {
