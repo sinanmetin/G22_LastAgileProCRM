@@ -151,9 +151,9 @@ public class Services_StepDefinitions extends TestBase {
     }
     @Then("user sees sorted daten")
         public void user_sees_sorted_daten() {
-        SimpleDateFormat sdFormat = new SimpleDateFormat("MM-dd-yyyy");
-        String d2 = servicesPage.firstDateBtn.getText();
-        String d1 = servicesPage.secondDateBtn.getText();
+       
+        String d1 = servicesPage.firstDateBtn.getText();
+        String d2 = servicesPage.secondDateBtn.getText();
         System.out.println(d1);
         System.out.println("d2 = " + d2);
         if (d1.compareTo(d2) > 0) {
@@ -177,12 +177,21 @@ public class Services_StepDefinitions extends TestBase {
         String r1=servicesPage.firstRating.getText();
         String r2=servicesPage.secondRating.getText();
 
-
-
-
-
-
+        if (r1.compareTo(r2) > 0) {
+            System.out.println("R1 number bigger than R2 number");
+            Assert.assertTrue(true);
+        } else if (r1.compareTo(r2) < 0) {
+            System.out.println("R1 number smaller than R2 number");
+            Assert.assertTrue(false);
+        } else if (r1.compareTo(r2) == 0) {
+            System.out.println("Both number are aqual");
+            Assert.assertTrue(true);
         }
+        System.out.println("r1 = " + r1);
+        System.out.println("r2 = " + r2);
+
+
+    }
 }
 
 

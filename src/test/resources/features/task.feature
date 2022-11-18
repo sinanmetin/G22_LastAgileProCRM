@@ -26,7 +26,7 @@ Feature: As a user, I should be able to use "Tasks" functionality so that user c
 
 
 
-  #@wip
+
 
   Scenario: AC2- Marketing User can edit the task by declaring
   himself/herself as responsible person.
@@ -56,7 +56,7 @@ Feature: As a user, I should be able to use "Tasks" functionality so that user c
 
 
 
-  #@wip
+
 
   Scenario: AC5- Marketing User can create a subtask of the first acceptance
   criteria's task quickly by using plus button, adding tags.
@@ -76,7 +76,7 @@ Feature: As a user, I should be able to use "Tasks" functionality so that user c
     And user click on plus button next to related task to see subtasks
     Then user should see created subtask under the related task
 
-  @wip
+
   Scenario: AC7- Marketing User can add participants and
   observers to already created task by editing.
 
