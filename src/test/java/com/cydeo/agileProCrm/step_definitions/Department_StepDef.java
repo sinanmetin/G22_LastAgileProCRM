@@ -31,9 +31,9 @@ public class Department_StepDef extends TestBase {
 
     @Then("user should see the company structure display")
     public void userShouldSeeTheCompanyStructureDisplay() {
-        String expectedUrl = "https://qa.agileprocrm.com/company/vis_structure.php";
-        String actualUrl = Driver.getDriver().getCurrentUrl();
-        Assert.assertEquals(expectedUrl,actualUrl);
+        String expectedTitle = "Company Structure";
+        String actualUrl = Driver.getDriver().getTitle();
+        Assert.assertEquals(expectedTitle,actualUrl);
     }
 
     @And("user click on the add department button")

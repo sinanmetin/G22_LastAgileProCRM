@@ -1,12 +1,15 @@
+@AGIL-1810
 Feature: AC-1 User should be able to display the company structure.
 
   Background:
     Given user is on login page
 
+  @AGIL-1767
   Scenario Outline: 1. User should be able to display the company structure
     When "<user>" login with "<username>" and "<password>"
-    And user click on the Employees button
+    And user clicks on "Employees" on Activity Stream Menu
     Then user should see the company structure display
+
 
     Examples:
       | user      | username                       | password |
@@ -15,10 +18,10 @@ Feature: AC-1 User should be able to display the company structure.
       | Marketing | marketing25@cybertekschool.com | UserUser |
 
 
-  @wip
+  @AGIL-1768
   Scenario Outline: 2. User should be able to add a department
     When "<user>" login with "<username>" and "<password>"
-    And user click on the Employees button
+    And user clicks on "Employees" on Activity Stream Menu
     And user click on the add department button
     And user type any department name
     And user click on the add button
@@ -31,6 +34,7 @@ Feature: AC-1 User should be able to display the company structure.
       | HR   | hr25@cybertekschool.com | UserUser |
 
 
+  @AGIL-1808
   Scenario Outline: 6. User should be able to display the telephone directory
     When "<user>" login with "<username>" and "<password>"
     And user click on the Employees button
@@ -43,6 +47,7 @@ Feature: AC-1 User should be able to display the company structure.
       | Helpdesk  | helpdesk18@cybertekschool.com  | UserUser |
       | Marketing | marketing25@cybertekschool.com | UserUser |
 
+  @AGIL-1809
   Scenario Outline: 7. User should be able to send messages to employee from the telephone directory
     When "<user>" login with "<username>" and "<password>"
     And user click on the Employees button
