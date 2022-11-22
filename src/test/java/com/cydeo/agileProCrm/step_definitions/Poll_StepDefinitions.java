@@ -2,89 +2,47 @@ package com.cydeo.agileProCrm.step_definitions;
 
 import com.cydeo.agileProCrm.base.TestBase;
 import com.cydeo.agileProCrm.pages.PollPage;
+import com.cydeo.agileProCrm.utilities.BrowserUtils;
+import com.github.dockerjava.api.model.Link;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import jdk.jfr.Timespan;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import com.cydeo.agileProCrm.utilities.Driver;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-
+import java.sql.Time;
+import java.util.Timer;
 
 
 public class Poll_StepDefinitions extends TestBase {
 
 
-//---------------------AC-1-------------------------------------------
 
-
-    @When("user selects to add more button")
-    public void user_selects_to_add_more_button() {
-        pollPage.toAddMoreLink.click();
-    }
-
-    @When("user clicks the emplooyes and departments option")
-    public void user_clicks_the_emplooyes_and_departments_option() {
-
-        pollPage.EmpandDeptOption.click();
-
-    }
-
-
-    @Then("user should select the multiple contacts from the emplooyes and departments contact lists.")
-    public void user_should_select_the_multiple_contacts_from_the_emplooyes_and_departments_contact_lists() {
-        actions.moveToElement(pollPage.hr101).perform();
-    }
-
-    //------------------------AC-2--------------------------------------------
-
-
-    @And("user select to link button")
-    public void userSelectToLinkButton() {
-        wait.until(ExpectedConditions.visibilityOf(ASM.activityStream));
-        ASM.activityStream.isSelected();
-
-
-    }
-
-    @And("user enter the link on link field")
-    public void userEnterTheLinkOnLinkField() {
-
-
-
-    }
-
-    @And("user click on the send button")
-    public void userClickOnTheSendButton() {
-        wait.until(ExpectedConditions.visibilityOf(pollPage.sendBtn));
-        pollPage.sendBtn.click();
-    }
-
-    @Then("user should be attach a link on the text field")
-    public void userShouldBeAttachALinkOnTheTextField() {
-
-    }
-//--------------------------------AC-4-6-7---------------------------------------
-     @And("user writes question and more answers  under the topic field")
-      public void userWritesQuestionAndMoreAnswersUnderTheTopicField() {
-      }
 
     @And("user clicks {string} checkbox for answers")
-    public void userClicksCheckboxForAnswers(String arg0) {
+    public void userClicksCheckboxForAnswers(String args0) {
+        WebElement checkbox= Driver.getDriver().findElement(By.id("multi_0"));
+        System.out.println("checkbox.isSelected()= " + checkbox.isSelected());
+        checkbox.click();
 
-
-        pollPage.AllMultChoBox.click();
 
     }
 
     @And("user selects add question button")
     public void userSelectsAddQuestionButton() {
-        wait.until(ExpectedConditions.visibilityOf(ASM.activityStream));
-        ASM.activityStream.isSelected();
-        pollPage.AddQuestionBtn.isSelected();
-
+        wait.until(ExpectedConditions.visibilityOf(pollPage.AddQuestionBtn));
+        pollPage.AddQuestionBtn.click();
 
     }
 
@@ -92,7 +50,6 @@ public class Poll_StepDefinitions extends TestBase {
     public void userAddAnotherQuestionAndAnswers() {
 
     }
-
 
     @Then("user should add questions and multiple answers")
     public void userShouldAddQuestionsAndMultipleAnswers() {
@@ -102,25 +59,14 @@ public class Poll_StepDefinitions extends TestBase {
     public void attendeesShouldSelectMultipleChoice() {
     }
 
-    //------------------------------AC-3---------------------------------------------------
-    @And("user click on the mention icon")
-    public void userClickOnTheMentionIcon() {
-        wait.until(ExpectedConditions.visibilityOf(pollPage.clickmention));
-        pollPage.clickmention.click();
-
-    }
-
-    @And("user add a mention")
-    public void userAddAMention() {
-
-    }
-
     @Then("user should see added mention under the topic")
     public void userShouldSeeAddedMentionUnderTheTopic() {
     }
 
     @And("user click delete button")
     public void userClickDeleteButton() {
+        wait.until(ExpectedConditions.visibilityOf(pollPage.clickDeleteBtn));
+        pollPage.clickDeleteBtn.click();
 
     }
 
@@ -129,14 +75,23 @@ public class Poll_StepDefinitions extends TestBase {
 
     }
 
-    @Given("user logged in and on home page")
-    public void userLoggedInAndOnHomePage() {
+
+    @And("user clicks on Add More button")
+    public void userClicksOnAddMoreButton() {
+        BrowserUtils.waitFor(2);
+        pollPage.toAddMoreLink.click();
     }
 
-    @And("user click on {string} on Quick menu")
-    public void userClickOnOnQuickMenu(String arg0) {
-        wait.until(ExpectedConditions.visibilityOf(ASM.activityStream));
-        ASM.activityStream.click();
 
+
+    @And("user click on More button")
+    public void userClickOnMoreButton() {
+        pollPage.MoreBtn.click();
     }
 }
+
+
+
+
+
+
