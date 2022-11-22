@@ -1,4 +1,3 @@
-
 @AGIL-1748
 Feature: As a user, I should be able to create a poll by clicking on Poll tab under Activity Stream.
 
@@ -42,7 +41,6 @@ Feature: As a user, I should be able to create a poll by clicking on Poll tab un
         And user enter text on quote field
         And user click on Send button
         Then message should be sent with quote text
-
 
 
 

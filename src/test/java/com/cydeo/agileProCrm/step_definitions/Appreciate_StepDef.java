@@ -11,6 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 public class Appreciate_StepDef extends TestBase {
 
@@ -23,7 +24,7 @@ public class Appreciate_StepDef extends TestBase {
         homePage.quickMenuClick(linkText);
     }
 
-
+    //-------------AC-1-----------
     @When("user click on Upload Files icon")
     public void user_click_on_upload_files_icon()  {
 
@@ -54,6 +55,7 @@ public class Appreciate_StepDef extends TestBase {
     public void user_click_on_select_document_from_bitrix24() {
         appreciate.selectDocumentFromBitrix24.click();
     }
+
     @Then("user click on Sales and marketing")
     public void user_click_on_sales_and_marketing() {
         appreciate.salesAndMarketingBtn.click();
@@ -73,6 +75,7 @@ public class Appreciate_StepDef extends TestBase {
     public void user_click_on_select_document_button() {
         appreciate.selectDocumentBtn.click();
     }
+
     @Then("user click on in text button")
     public void user_click_on_in_text_button() {
         appreciate.insexInText3.click();
@@ -102,8 +105,8 @@ public class Appreciate_StepDef extends TestBase {
         appreciate.office365.click();
     }
 
-    @Then("user see a notification that should contact to Administrator#Then image and file should be uploaded")
-    public void userSeeANotificationThatShouldContactToAdministratorThenImageAndFileShouldBeUploaded() {
+    @Then("user see a notification that should contact to Administrator")
+    public void userSeeANotificationThatShouldContactToAdministrator() {
         Assert.assertTrue(appreciate.AdminNotification.isDisplayed());
         BrowserUtils.waitFor(3);
         appreciate.cancelBtn.click();
@@ -156,10 +159,19 @@ public class Appreciate_StepDef extends TestBase {
         Assert.assertTrue((appreciate.recipient.getText()).contains("helpdesk9@cybertekschool.com"));
     }
 
-    @And("user click on add mention icon and choose {string} from the list")
-    public void userClickOnAddMentionIconAndChooseHelpdesk9FromTheList(String string) {
+    //-------------AC-6-----------
+    @And("user click on add mention icon and choose {string} from Employees and departments")
+    public void userClickOnAddMentionIconAndChooseHelpdesk9FromTheList(String email) {
 
         appreciate.addMentionBtn.click();
+        BrowserUtils.waitFor(1);
+        appreciate.EmployeeDepartments.click();
+        BrowserUtils.waitFor(1);
+        String locator = "//div[.='" + email + "' and @class='bx-finder-company-department-employee-name']";
+        BrowserUtils.scrollToElement(Driver.getDriver().findElement(By.xpath(locator)));
+        BrowserUtils.waitFor(1);
+        BrowserUtils.waitForClickablility(Driver.getDriver().findElement(By.xpath(locator)), 10).click();
+
     }
 
     @Then("user should see hr11 in content part")
@@ -198,6 +210,7 @@ public class Appreciate_StepDef extends TestBase {
         Driver.getDriver().switchTo().defaultContent();
     }
 
+    //-------------AC-5-----------
     @Given("User click on quote text button")
     public void user_click_on_quote_text_button() {
 
@@ -212,6 +225,7 @@ public class Appreciate_StepDef extends TestBase {
         Driver.getDriver().switchTo().defaultContent();
     }
 
+    //-------------AC-7-----------
     @Given("user click on visual editor icon")
     public void user_click_on_visual_editor_icon() {
         appreciate.VisualEditorIcon.click();
@@ -221,6 +235,7 @@ public class Appreciate_StepDef extends TestBase {
         Assert.assertTrue(appreciate.EditorTextBar.isDisplayed());
     }
 
+    //-------------AC-8-----------
     @Given("user click on Topic icon")
     public void userClickOnTopicIcon() {
         appreciate.TopicIcon.click();
@@ -230,35 +245,34 @@ public class Appreciate_StepDef extends TestBase {
     public void userShouldSeeTheAppreciationTopicTextBoxDisplayOnTopOfTheMessageBox() {
         BrowserUtils.waitFor(2);
         Assert.assertTrue(appreciate.TopicTextBox.isDisplayed());
-
     }
 
+    //----------AC-10-------------
     @When("user click on Add tag button")
     public void user_click_on_add_tag_button() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        appreciate.addTagIcon.click();
     }
     @When("enter {string} in Tag space")
     public void enter_in_tag_space(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        appreciate.TagSpace.sendKeys(string + Keys.ENTER);
     }
     @Then("user should see {string} in Tag box")
     public void user_should_see_in_tag_box(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        Assert.assertTrue(appreciate.wip1.isDisplayed());
     }
+
     @Then("user click on Add tag button again and enter {string}")
     public void user_click_on_add_tag_button_again_and_enter(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
+        appreciate.addTagIcon.click();
+        appreciate.TagSpace.sendKeys(string + Keys.ENTER);
     }
     @Then("user can also see {string} in Tag box")
     public void user_can_also_see_in_tag_box(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        Assert.assertTrue(appreciate.wip2.isDisplayed());
     }
 
+    //---------AC-11---------
     @And("user click on the existing emoji")
     public void userClickOnTheExistingEmoji() {
         appreciate.existingEmoji.click();
