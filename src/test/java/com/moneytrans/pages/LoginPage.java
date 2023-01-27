@@ -16,6 +16,11 @@ public class LoginPage {
     @FindBy (id="wt-cli-accept-btn")
     public WebElement acceptBtn;
 
+    @FindBy(xpath = "(//span[.='REGISTER'])[1]")
+    public WebElement registerBtn;
+
+
+
 
 
 

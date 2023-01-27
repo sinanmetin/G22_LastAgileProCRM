@@ -24,6 +24,8 @@ public class Login extends TestBase {
     @When("user click register button")
     public void user_click_register_button() {
 
+        login.registerBtn.click();
+
     }
 
 
