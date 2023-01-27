@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features_money",
         glue = "com/moneytrans/step_def",
         dryRun = false,
-        tags = "",
+        tags = "@moneyLogin",
         //"@wip and @googleSearch"
         //"@student or @admin
         //"@Regression and not @student"
