@@ -15,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class Company_StepDef extends TestBase {
@@ -47,6 +48,8 @@ public class Company_StepDef extends TestBase {
         String expectedType = "News";
         String actualType = selectObj.getFirstSelectedOption().getText();
         Assert.assertEquals(actualType,expectedType);
+
+
 
     }
 

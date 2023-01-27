@@ -14,6 +14,8 @@ import java.security.PublicKey;
 
 public abstract class TestBase {
 
+
+
     public WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 15);
 
     public Faker faker = new Faker();

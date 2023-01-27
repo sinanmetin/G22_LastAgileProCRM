@@ -22,13 +22,7 @@ Feature: As a user, I should be able to use "Tasks" functionality so that user c
     Then user should see the Task under My tasks List
 
 
-
-
-
-
-
   @AGIL-1829
-
   Scenario: AC2- Marketing User can edit the task by declaring
   himself/herself as responsible person.
     When user login "marketing11@cybertekschool.com" "UserUser"
@@ -55,14 +49,7 @@ Feature: As a user, I should be able to use "Tasks" functionality so that user c
     Then user should see timer under the task name
 
 
-
-
-
-
-
-
   @AGIL-1831
-
   Scenario: AC5- Marketing User can create a subtask of the first acceptance
   criteria's task quickly by using plus button, adding tags.
 
@@ -82,10 +69,7 @@ Feature: As a user, I should be able to use "Tasks" functionality so that user c
     Then user should see created subtask under the related task
 
 
-
-
   @AGIL-1832 @smoke
-
   Scenario: AC7- Marketing User can add participants and
   observers to already created task by editing.
     When user login "marketing11@cybertekschool.com" "UserUser"

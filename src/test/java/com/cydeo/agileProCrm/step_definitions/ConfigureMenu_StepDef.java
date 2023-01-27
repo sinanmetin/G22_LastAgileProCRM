@@ -28,6 +28,8 @@ public class ConfigureMenu_StepDef extends TestBase {
         ASM.configureMenuLink.click();
     }
 
+
+
     @When("user click on Add Custom Menu Item")
     public void user_click_on_add_custom_menu_item() {
         ASM.addCustomMenuItem.click();

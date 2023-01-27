@@ -1,4 +1,4 @@
-package com.cydeo.agileProCrm.runners;
+package com.moneytrans.runner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -15,8 +15,8 @@ import org.junit.runner.RunWith;
 
         },
 
-        features = "src/test/resources/features",
-        glue = "com/cydeo/agileProCrm/step_definitions",
+        features = "src/test/resources/features_money",
+        glue = "com/moneytrans/step_def",
         dryRun = false,
         tags = "",
         //"@wip and @googleSearch"
