@@ -8,6 +8,7 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
 
+    //i am ISTQB certified
 
 
 
