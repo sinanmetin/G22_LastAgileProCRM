@@ -8,7 +8,13 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
 
+//sinan is
+//writing
+    //conflict
+
+
     //i am ISTQB certified
+
 
 
 
