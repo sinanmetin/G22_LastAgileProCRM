@@ -23,6 +23,8 @@ public class Applications_StepDef extends TestBase {
         loginPage.inputUsername.sendKeys(username);
         loginPage.inputPassword.sendKeys(password);
         loginPage.loginBtn.click();
+
+        //
     }
 
 
