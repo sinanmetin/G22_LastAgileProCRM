@@ -86,6 +86,8 @@ public class Logout_StepDef extends TestBase {
     @And("user open new browser and try to navigate to home page")
     public void userOpenNewBrowserAndTryToNavigateToHomePage() {
         Driver.getDriver().get("https://qa.agileprocrm.com/stream/?login=yes");
+
+        //
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
