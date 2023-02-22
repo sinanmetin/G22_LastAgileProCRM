@@ -169,10 +169,6 @@ public class Message_StepDef extends TestBase {
 
         Assert.assertEquals(expectedSender, actualSender);
         Assert.assertEquals(expectedText, actualText);
-
-
-
-
     }
 
     @Then("user should see {string} error message")
