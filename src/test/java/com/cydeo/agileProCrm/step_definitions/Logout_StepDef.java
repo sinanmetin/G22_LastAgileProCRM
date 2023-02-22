@@ -27,6 +27,9 @@ public class Logout_StepDef extends TestBase {
     public void hr_user_logged_in_and_on_home_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         login.loginHR();
+
+//new change
+        //some change
     }
 
     //////////As a Helpdesk user/////////////
