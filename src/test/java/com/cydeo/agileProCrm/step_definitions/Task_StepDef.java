@@ -465,7 +465,7 @@ public class Task_StepDef extends TestBase {
         task.selectAction.click();
         BrowserUtils.waitForClickablility(task.selActDelete, 10).click();
     }
-
+//
     @And("user click on APPLY")
     public void userClickOnAPPLY() {
         BrowserUtils.waitForClickablility(task.applyBtn, 10).click();
